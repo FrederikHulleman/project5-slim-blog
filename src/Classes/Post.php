@@ -70,6 +70,25 @@ Class Post {
   }
 
   /**
+  * Gets the local property $date in raw format
+  * @return string
+  */
+ public function getRawDate()
+ {
+     return $this->date;
+ }
+
+ /**
+ * Gets the local property $date in the right format for display to user
+ * @return string
+ */
+public function getFormattedDate()
+{
+    return date("F j, Y",strtotime($this->date));
+}
+
+
+  /**
    * Cleans up and sets the local property $date
    * @param string $value to set property
    */
@@ -77,6 +96,15 @@ Class Post {
   {
       $this->date = trim(filter_var($value, FILTER_SANITIZE_STRING));
   }
+
+  /**
+  * Gets the local property $body
+  * @return string
+  */
+ public function getBody()
+ {
+     return $this->body;
+ }
 
   /**
    * Cleans up and sets the local property $body

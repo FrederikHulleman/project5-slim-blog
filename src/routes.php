@@ -9,15 +9,15 @@ $app->get('/post/{id}', function ($request, $response, $args) {
     $this->logger->addInfo("Post: $post_id");
     $mapper = new PostMapper($this->db);
     $mapper->selectPosts($post_id);
-    // return $this->view->render($response, 'index.twig', [
-    //   'posts' => $mapper->posts
-    // ]);
-    foreach ($mapper->posts as $post) {
-      $response->getBody()->write(var_export($mapper->posts, true));
-
-    }
-    return $response;
-});
+    return $this->view->render($response, 'index.twig', [
+      'posts' => $mapper->posts
+    ]);
+    // foreach ($mapper->posts as $post) {
+    //   $response->getBody()->write(var_export($mapper->posts, true));
+    //
+    // }
+    // return $response;
+})->setName('post-detail');
 
 $app->get('/[{posts}]', function ($request, $response, $args) {
     $this->logger->addInfo("Posts list");
