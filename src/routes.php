@@ -9,9 +9,13 @@ $app->get('/post/{id}', function ($request, $response, $args) {
     $this->logger->addInfo("Post: $post_id");
     $mapper = new PostMapper($this->db);
     $mapper->selectPosts($post_id);
-    //foreach ($mapper->posts as $post) {
+    // return $this->view->render($response, 'index.twig', [
+    //   'posts' => $mapper->posts
+    // ]);
+    foreach ($mapper->posts as $post) {
       $response->getBody()->write(var_export($mapper->posts, true));
-    //}
+
+    }
     return $response;
 });
 
@@ -19,10 +23,13 @@ $app->get('/[{posts}]', function ($request, $response, $args) {
     $this->logger->addInfo("Posts list");
     $mapper = new PostMapper($this->db);
     $mapper->selectPosts();
-    foreach ($mapper->posts as $post) {
-      $response->getBody()->write(var_export($post, true));
-    }
-    return $response;
+    return $this->view->render($response, 'index.twig', [
+      'posts' => $mapper->posts
+    ]);
+    // foreach ($mapper->posts as $post) {
+    //   $response->getBody()->write(var_export($post, true));
+    // }
+    // return $response;
 });
 
 // $app->get('/[{name}]', function ($request, $response, $args) {

@@ -9,7 +9,7 @@ class Review
     {
         $this->database = $database;
     }
-    public function getReviewsByC ourseId($course_id)
+    public function getReviewsByCourseId($course_id)
     {
         if (empty($course_id)) {
             throw new ApiException(ApiException::REVIEW_INFO_REQUIRED);

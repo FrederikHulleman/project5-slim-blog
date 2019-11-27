@@ -8,6 +8,13 @@ return [
             'template_path' => __DIR__ . '/../templates/',
         ],
 
+        //twig view settings 
+        'view' => [
+          'template_path' => __DIR__ . '/../templates/',
+          'cache' => false,
+          'auto_reload' => true,
+        ],
+
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
