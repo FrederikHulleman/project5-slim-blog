@@ -9,11 +9,11 @@ $app->get('/post/{id}', function ($request, $response, $args) {
     $this->logger->addInfo("Post: $post_id");
     $mapper = new PostMapper($this->db);
     $mapper->selectPosts($post_id);
-    return $this->view->render($response, 'index.twig', [
-      'posts' => $mapper->posts
+    return $this->view->render($response, 'detail.twig', [
+     'post' => $mapper->posts[0]
     ]);
     // foreach ($mapper->posts as $post) {
-    //   $response->getBody()->write(var_export($mapper->posts, true));
+    //   $response->getBody()->write(var_export($mapper->posts[0], true));
     //
     // }
     // return $response;
@@ -30,7 +30,7 @@ $app->get('/[{posts}]', function ($request, $response, $args) {
     //   $response->getBody()->write(var_export($post, true));
     // }
     // return $response;
-});
+})->setName('posts-list');
 
 // $app->get('/[{name}]', function ($request, $response, $args) {
 //     // Sample log message

@@ -1,4 +1,4 @@
 <article>
-    <h2><a href="{{ path_for('post-detail', { 'id': '1' }) }}">{{ post.getTitle() }}</a></h2>
+    <h2><a href="{{ path_for('post-detail', { 'id': post.getId() }) }}">{{ post.getTitle() }}</a></h2>
     <time datetime="{{ post.getRawDate() }}">{{ post.getFormattedDate() }}</a></time>
 </article>
