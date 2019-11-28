@@ -5,6 +5,7 @@ namespace Project5SlimBlog;
 Class Post {
 
   private $id,$title,$date,$body;
+  private $comments = []; //links to related comment objects
 
   public function __construct($data = [])
   {
@@ -84,7 +85,7 @@ Class Post {
  */
 public function getFormattedDate()
 {
-    return date("F j, Y",strtotime($this->date));
+    return date('F j, Y | H:i:s',strtotime($this->date));
 }
 
 
@@ -113,6 +114,16 @@ public function getFormattedDate()
   public function setBody($value)
   {
       $this->body = trim(filter_var($value, FILTER_SANITIZE_STRING));
+  }
+
+  public function setComments($comments)
+  {
+    $this->comments = $comments;
+  }
+
+  public function getComments()
+  {
+    return $this->comments;
   }
 
 }

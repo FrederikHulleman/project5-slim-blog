@@ -1,13 +1,17 @@
 {% extends "base.twig" %}
 
-{% block title %}Welcom Home{% endblock %}
+{% block title %}Blog posts{% endblock %}
 
 {% block content %}
-  <div class="entry-list">
-    {% for post in posts %}
-        {{ include("post.twig") }}
-    {%  else %}
-      No articles present
-    {% endfor %}
-  </div>
+<section>
+    <div class="container">
+      <div class="entry-list">
+        {% for post in posts %}
+            {{ include("post.twig") }}
+        {%  else %}
+          No articles present
+        {% endfor %}
+      </div>
+    </div>
+</section>
 {% endblock %}
