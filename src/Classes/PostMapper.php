@@ -49,4 +49,29 @@ class PostMapper
     return $post;
   }
 
+  /**
+     * Set alerts to show user
+     * @param string $type Options: primary/success/info/warning/danger
+     * @param string $msg  Message to display
+     * @return null sets super global $_SESSION
+     */
+    public function setAlert($type, $msg)
+    {
+        $_SESSION['alerts'][] = ['type' => $type, 'message' => $msg];
+    }
+
+    /**
+     * Get alerts to show user
+     * @return array
+     */
+    public function getAlert()
+    {
+        if (!isset($_SESSION['alerts'])) {
+            return [];
+        }
+        $alerts = $_SESSION['alerts'];
+        unset($_SESSION['alerts']);
+        return $alerts;
+    }
+
 }

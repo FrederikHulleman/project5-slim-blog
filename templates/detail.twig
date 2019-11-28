@@ -22,15 +22,16 @@
 <section class="entry-comments">
     <div class="container">
             <h2>Comments</h2>
-            <div class="comment">
-                <strong>Carling Kirk</strong>
-                <time datetime="2016-01-31 1:00">January 31, 2016 at 1:00</time>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut rhoncus felis, vel tincidunt neque. Vestibulum ut metus eleifend, malesuada nisl at, scelerisque sapien. Vivamus pharetra massa libero, sed feugiat turpis efficitur at.</p>
-            </div>
+
+            {% for comment in comments %}
+                {{ include("comment.twig") }}
+            {%  else %}
+              No comments
+            {% endfor %}
 
             {{ include("comment_form.twig") }}
 
-            
+
     </div>
 </section>
 {% endblock %}

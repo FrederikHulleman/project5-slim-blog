@@ -126,6 +126,15 @@ public function getFormattedDate()
     return $this->comments;
   }
 
+  /**
+   * Convert the current object to an associative array of parameters
+   * @return array of object parameters
+   */
+  public function toArray()
+  {
+      return get_object_vars($this);
+  }
+
 }
 
 ?>

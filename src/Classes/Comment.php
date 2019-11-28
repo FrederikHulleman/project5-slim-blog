@@ -115,6 +115,15 @@ public function getFormattedDate()
       $this->body = trim(filter_var($value, FILTER_SANITIZE_STRING));
   }
 
+  /**
+   * Convert the current object to an associative array of parameters
+   * @return array of object parameters
+   */
+  public function toArray()
+  {
+      return get_object_vars($this);
+  }
+
 }
 
 ?>
