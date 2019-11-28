@@ -116,9 +116,9 @@ public function getFormattedDate()
       $this->body = trim(filter_var($value, FILTER_SANITIZE_STRING));
   }
 
-  public function setComments($comments)
+  public function addComment($comment)
   {
-    $this->comments = $comments;
+    $this->comments[] = $comment;
   }
 
   public function getComments()

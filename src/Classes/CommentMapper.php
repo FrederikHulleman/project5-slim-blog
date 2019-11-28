@@ -6,7 +6,7 @@ use PDO;
 class CommentMapper
 {
   private $db;
-  public $comments = [];
+  //public $comments = [];
   public $post;
 
   public function __construct($db,$post)
@@ -34,7 +34,6 @@ class CommentMapper
     foreach ($results->fetchAll(PDO::FETCH_ASSOC) as $data) {
       $this->addComment($data);
     }
-    $this->post->setComments($this->comments);
     return $results->rowCount();
     //return $posts;
   }
@@ -42,7 +41,8 @@ class CommentMapper
   public function addComment($data = null)
   {
     $comment = new Comment($data);
-    $this->comments[] = $comment;
+    $this->post->addComment($comment);
+    //$this->comments[] = $comment;
     return $comment;
   }
 

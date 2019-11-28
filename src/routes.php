@@ -7,19 +7,25 @@ $app->get('/post/{id}', function ($request, $response, $args) {
 
     $post_id = (int)$args['id'];
     $this->logger->info("Post: $post_id");
-    $mapper = new PostMapper($this->db);
-    $mapper->selectPosts($post_id);
+    $post_mapper = new PostMapper($this->db);
+    $post_mapper->selectPosts($post_id);
+
+    $comment_mapper = new CommentMapper($this->db,$post_mapper->posts[0]);
+    $comment_mapper->selectComments();
+
     return $this->view->render($response, 'detail.twig', [
-     'post' => $mapper->posts[0]
+     'post' => $post_mapper->posts[0],
+     'comments' => $post_mapper->posts[0]->getComments()
     ]);
 })->setName('post-detail');
 
 $app->get('/[{posts}]', function ($request, $response, $args) {
     $this->logger->info("Posts list");
-    $mapper = new PostMapper($this->db);
-    $mapper->selectPosts();
+    $post_mapper = new PostMapper($this->db);
+    $post_mapper->selectPosts();
+
     return $this->view->render($response, 'blog.twig', [
-      'posts' => $mapper->posts
+      'posts' => $post_mapper->posts
     ]);
 })->setName('posts-list');
 

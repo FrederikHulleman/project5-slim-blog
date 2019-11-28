@@ -4,10 +4,9 @@ namespace Project5SlimBlog;
 
 Class Comment {
 
-  private $id,$title,$date,$body;
-  private $post; //Post object to which a comment belongs
+  private $id,$name,$date,$body;
 
-  public function __construct($data = [],$post)
+  public function __construct($data = [])
   {
       if (!empty($data)) {
           $this->setValues($data);
@@ -22,8 +21,8 @@ Class Comment {
       if (isset($data['id'])) {
           $this->setId($data['id']);
       }
-      if (isset($data['title'])) {
-          $this->setTitle($data['title']);
+      if (isset($data['name'])) {
+          $this->setName($data['name']);
       }
       if (isset($data['date'])) {
           $this->setDate($data['date']);
@@ -53,21 +52,21 @@ Class Comment {
   }
 
   /**
-   * Gets the local property $title
+   * Gets the local property $name
    * @return string
    */
-  public function getTitle()
+  public function getName()
   {
-      return $this->title;
+      return $this->name;
   }
 
   /**
-   * Cleans up and sets the local property $title
+   * Cleans up and sets the local property $name
    * @param string $value to set property
    */
-  public function setTitle($value)
+  public function setName($value)
   {
-      $this->title = trim(filter_var($value, FILTER_SANITIZE_STRING));
+      $this->name = trim(filter_var($value, FILTER_SANITIZE_STRING));
   }
 
   /**
