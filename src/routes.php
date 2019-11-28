@@ -12,8 +12,9 @@ $app->map(['GET','POST'],'/post/{post_id}', function ($request, $response, $args
 
   if($request->getMethod() == "POST") {
     $args = array_merge($args, $request->getParsedBody());
-    $log = json_encode(["post_id: $post_id","name: ".$args['name'],"body: ".$args['body']]);
+    $args = filter_var_array($args,FILTER_SANITIZE_STRING);
 
+    $log = json_encode(["post_id: $post_id","name: ".$args['name'],"body: ".$args['body']]);
     if(!empty($args['name']) && !empty($args['body'])) {
       if($comment_mapper->insert($args)) {
           $this->logger->notice("New comment: SUCCESFUL | $log");
