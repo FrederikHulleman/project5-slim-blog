@@ -12,21 +12,23 @@ $app->map(['GET','POST'],'/post/{post_id}', function ($request, $response, $args
 
   if($request->getMethod() == "POST") {
     $args = array_merge($args, $request->getParsedBody());
+    $log = json_encode(["post_id: $post_id","name: ".$args['name'],"body: ".$args['body']]);
+
     if(!empty($args['name']) && !empty($args['body'])) {
-        $log = json_encode(["post_id: $post_id","name: ".$args['name'],"body: ".$args['body']]);
-        $this->logger->notice("New comment: $log");
-
-        $comment_mapper->insert($args);
-        
-        foreach ($comment_mapper->getAlert() as $alert) {
-          $this->logger->notice("Results: " . $alert['type'] . " | " . $alert['message']);
+      if($comment_mapper->insert($args)) {
+          $this->logger->notice("New comment: SUCCESFUL | $log");
+          //to avoid resubmitting values:
+          $url = $this->router->pathFor('post-detail',['post_id' => $post_id]);
+          return $response->withStatus(302)->withHeader('Location',$url);
+        } else {
+          $args['error'] = $comment_mapper->getAlert()[0]['message'];
+          $this->logger->notice("New comment: UNSUCCESFUL | $log");
         }
-        //to avoid resubmitting values:
-        $url = $this->router->pathFor('post-detail',['post_id' => $post_id]);
-        return $response->withStatus(302)->withHeader('Location',$url);
       }
-      $args['error'] = "all fields required";
-
+      else {
+        $args['error'] = "all fields required";
+        $this->logger->notice("New comment: UNSUCCESFUL | $log");
+      }
   }
   else {
     $this->logger->info("View post: $post_id");
@@ -50,11 +52,3 @@ $app->get('/[{posts}]', function ($request, $response, $args) {
       'posts' => $post_mapper->posts
     ]);
 })->setName('posts-list');
-
-// $app->get('/[{name}]', function ($request, $response, $args) {
-//     // Sample log message
-//     $this->logger->info("Slim-Skeleton '/' route");
-//
-//     // Render index view
-//     return $this->renderer->render($response, 'index.phtml', $args);
-// });

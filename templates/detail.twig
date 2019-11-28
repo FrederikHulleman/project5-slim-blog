@@ -3,8 +3,10 @@
 {% block title %}{{ post.getTitle() }}{% endblock %}
 
 {% block content %}
+
 <section>
     <div class="container">
+    {{ args.error }}
         <div class="entry-list single">
             <article>
                 <h1>{{ post.getTitle() }}</h1>

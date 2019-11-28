@@ -281,3 +281,13 @@
 [2019-11-28 13:37:38] slim-app.NOTICE: New comment: ["post_id: 2","name: Nieuwe voor Guus","body: bravo"] [] {"uid":"2b8fa40"}
 [2019-11-28 13:37:38] slim-app.NOTICE: Results: success | <strong>Add comment successful!</strong> [] {"uid":"2b8fa40"}
 [2019-11-28 13:37:38] slim-app.INFO: View post: 2 [] {"uid":"8af10e1"}
+[2019-11-28 13:48:37] slim-app.INFO: Posts list [] {"uid":"b3f8190"}
+[2019-11-28 13:48:39] slim-app.INFO: View post: 1 [] {"uid":"b902123"}
+[2019-11-28 13:48:44] slim-app.NOTICE: New comment: UNSUCCESFUL | ["post_id: 1","name: ","body: "] [] {"uid":"6af7bfc"}
+[2019-11-28 13:50:14] slim-app.NOTICE: New comment: UNSUCCESFUL | ["post_id: 1","name: ","body: "] [] {"uid":"b59487f"}
+[2019-11-28 13:50:27] slim-app.NOTICE: New comment: UNSUCCESFUL | ["post_id: 1","name: ","body: "] [] {"uid":"c66bcb4"}
+[2019-11-28 13:51:02] slim-app.NOTICE: New comment: SUCCESFUL | ["post_id: 1","name: sadf","body: asdf"] [] {"uid":"4df1543"}
+[2019-11-28 13:51:02] slim-app.INFO: View post: 1 [] {"uid":"da6d6f5"}
+[2019-11-28 13:51:05] slim-app.INFO: View post: 1 [] {"uid":"45f14d9"}
+[2019-11-28 13:51:15] slim-app.NOTICE: New comment: SUCCESFUL | ["post_id: 1","name: 9999","body: 9999"] [] {"uid":"daafe71"}
+[2019-11-28 13:51:15] slim-app.INFO: View post: 1 [] {"uid":"bdf3e61"}
