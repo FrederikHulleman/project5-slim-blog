@@ -37,11 +37,62 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
     $valueKey => $request->getAttribute($valueKey)
   ];
 
-  return $this->view->render($response, 'new.twig', [
+  return $this->view->render($response, 'post_form.twig', [
    'csrf' => $csrf,
    'args' => $args
   ]);
 })->setName('new-post');
+
+$app->map(['GET','POST'],'/post/edit/{post_id}', function ($request, $response, $args) {
+  $post_id = (int)$args['post_id'];
+
+  $post_mapper = new PostMapper($this->db);
+  $post_mapper->selectPosts($post_id);
+
+  if($request->getMethod() == "POST") {
+    $args = array_merge($args, $request->getParsedBody());
+    $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+
+    $log = json_encode(["post_id: $post_id","title: ".$args['title'],"body: ".$args['body']]);
+    if(!empty($args['title']) && !empty($args['body'])) {
+      $this->logger->notice("NOT EMPTY");
+
+      $post_mapper->update($args);
+      $args['error'] = $post_mapper->getAlert()[0]['message'];
+      var_dump($args['error']);
+      /*if($count = $post_mapper->update($args)) {
+          var_dump($count);
+          $this->logger->notice("Update post: SUCCESFUL | $log");
+          //to avoid resubmitting values:
+          //$url = $this->router->pathFor('post-detail',['post_id' => $post_id]);
+          //return $response->withStatus(302)->withHeader('Location',$url);
+        } else {
+          $args['error'] = $post_mapper->getAlert()[0]['message'];
+          $this->logger->notice("Update post: UNSUCCESFUL | $log");
+        }*/
+      }
+      else {
+        $args['error'] = "all fields required";
+        $this->logger->notice("Update post: UNSUCCESFUL | $log");
+      }
+  }
+  else {
+    $args = array_merge($args, $post_mapper->posts[0]->toArray());
+    $this->logger->info("Edit post: $post_id");
+  }
+
+  $nameKey = $this->csrf->getTokenNameKey();
+  $valueKey = $this->csrf->getTokenValueKey();
+  $csrf = [
+    $nameKey => $request->getAttribute($nameKey),
+    $valueKey => $request->getAttribute($valueKey)
+  ];
+
+  return $this->view->render($response, 'post_form.twig', [
+   'csrf' => $csrf,
+   'args' => $args
+  ]);
+})->setName('edit-post');
 
 $app->map(['GET','POST'],'/post/{post_id}', function ($request, $response, $args) {
   $post_id = (int)$args['post_id'];

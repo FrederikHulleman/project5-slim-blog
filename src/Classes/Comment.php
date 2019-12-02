@@ -4,7 +4,7 @@ namespace Project5SlimBlog;
 
 Class Comment {
 
-  private $id,$name,$date,$body;
+  private $comment_id,$name,$date,$body;
 
   public function __construct($data = [])
   {
@@ -18,8 +18,8 @@ Class Comment {
    * @param array $data Data to set from user or database
    */
   public function setValues($data = []) {
-      if (isset($data['id'])) {
-          $this->setId($data['id']);
+      if (isset($data['comment_id'])) {
+          $this->setId($data['comment_id']);
       }
       if (isset($data['name'])) {
           $this->setName($data['name']);
@@ -39,7 +39,7 @@ Class Comment {
    */
   public function getId()
   {
-      return $this->id;
+      return $this->comment_id;
   }
 
   /**
@@ -48,7 +48,7 @@ Class Comment {
    */
   public function setId($value)
   {
-      $this->id = trim(filter_var($value, FILTER_SANITIZE_NUMBER_INT));
+      $this->comment_id = trim(filter_var($value, FILTER_SANITIZE_NUMBER_INT));
   }
 
   /**

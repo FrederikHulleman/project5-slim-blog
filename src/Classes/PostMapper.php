@@ -19,7 +19,7 @@ class PostMapper
     $sql = "SELECT * FROM posts";
 
     if(!empty($post_id)) {
-      $where = " WHERE id = :post_id";
+      $where = " WHERE post_id = :post_id";
     } else {
       $order = " ORDER BY date DESC";
     }
@@ -96,20 +96,27 @@ class PostMapper
 
       $sql = 'UPDATE posts SET ';
       foreach (array_keys($data) as $key) {
-          if ($key != 'id') {
+          if ($key != 'post_id' && $key != 'comments') {
               $sql .= " $key = :$key, ";
           }
       }
       $sql = substr($sql, 0, -2);
-      $sql .= ' WHERE id = :id';
+      $sql .= ' WHERE post_id = :post_id';
 
       try {
           $statement = $this->db->prepare($sql);
+          foreach (array_keys($data) as $key) {
+              if ($key != 'post_id' && $key != 'comments') {
+                  $results->bindValue(':$key',$data[$key],PDO::PARAM_STR);
+              }
+          }
+          $results->bindValue(':post_id',$data['post_id'],PDO::PARAM_INT);
           $statement->execute($data);
       } catch (Exception $e) {
-          echo $e->getMessage();
+          $this->setAlert('danger',$e->getMessage());
       }
       $count = $statement->rowCount();
+
       if ($count > 0) {
           $this->setAlert(
               'success',
@@ -126,12 +133,12 @@ class PostMapper
      * @param integer $id ID of the single post to remove
      * @return bool true/false
      */
-    public function delete($id)
+    public function delete($post_id)
     {
-        $sql = "DELETE FROM posts WHERE id=?";
+        $sql = "DELETE FROM posts WHERE post_id=?";
         try {
             $statement = $this->db->prepare($sql);
-            $statement->bindValue(1, $id, PDO::PARAM_INT);
+            $statement->bindValue(1, $post_id, PDO::PARAM_INT);
             $statement->execute();
         } catch (Exception $e) {
             echo $e->getMessage();

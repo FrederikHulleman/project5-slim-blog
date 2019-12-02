@@ -4,7 +4,7 @@ namespace Project5SlimBlog;
 
 Class Post {
 
-  private $id,$title,$date,$body;
+  private $post_id,$title,$date,$body;
   private $comments = []; //links to related comment objects
 
   public function __construct($data = [])
@@ -19,8 +19,8 @@ Class Post {
    * @param array $data Data to set from user or database
    */
   public function setValues($data = []) {
-      if (isset($data['id'])) {
-          $this->setId($data['id']);
+      if (isset($data['post_id'])) {
+          $this->setId($data['post_id']);
       }
       if (isset($data['title'])) {
           $this->setTitle($data['title']);
@@ -40,7 +40,7 @@ Class Post {
    */
   public function getId()
   {
-      return $this->id;
+      return $this->post_id;
   }
 
   /**
@@ -49,7 +49,7 @@ Class Post {
    */
   public function setId($value)
   {
-      $this->id = trim(filter_var($value, FILTER_SANITIZE_NUMBER_INT));
+      $this->post_id = trim(filter_var($value, FILTER_SANITIZE_NUMBER_INT));
   }
 
   /**
@@ -132,7 +132,9 @@ public function getFormattedDate()
    */
   public function toArray()
   {
-      return get_object_vars($this);
+      $vars = get_object_vars($this);
+      unset($vars['comments']);
+      return $vars;
   }
 
 }
