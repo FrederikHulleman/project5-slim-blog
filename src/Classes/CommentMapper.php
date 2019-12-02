@@ -48,7 +48,7 @@ class CommentMapper
   /**
      * Insert listing
      * @param array $data User Data
-     * @return bool If listing inserted true/false
+     * @return bool If comment inserted true/false
      */
     public function insert($data)
     {
@@ -73,7 +73,7 @@ class CommentMapper
             );
             return true;
         } else {
-            $this->setAlert('danger', 'Unable to update listing');
+            $this->setAlert('danger', 'Unable to add comment');
             return false;
         }
 

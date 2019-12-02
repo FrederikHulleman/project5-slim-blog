@@ -322,3 +322,28 @@
 [2019-11-28 19:46:21] slim-app.INFO: View post: 1 [] {"uid":"19da1de"}
 [2019-11-28 19:46:30] slim-app.NOTICE: New comment: UNSUCCESFUL | ["post_id: 1","name: ","body: "] [] {"uid":"af0e806"}
 [2019-11-28 19:46:38] slim-app.NOTICE: New comment: UNSUCCESFUL | ["post_id: 1","name: ","body: "] [] {"uid":"eba859a"}
+[2019-12-02 09:37:18] slim-app.INFO: Posts list [] {"uid":"190bca1"}
+[2019-12-02 09:44:20] slim-app.INFO: Posts list [] {"uid":"5c938b8"}
+[2019-12-02 10:08:09] slim-app.INFO: Posts list [] {"uid":"2b0c5ce"}
+[2019-12-02 10:08:11] slim-app.INFO: View post: 1 [] {"uid":"cfad51e"}
+[2019-12-02 10:08:52] slim-app.INFO: Posts list [] {"uid":"1358db0"}
+[2019-12-02 10:08:53] slim-app.INFO: Posts list [] {"uid":"d9a97a9"}
+[2019-12-02 10:09:30] slim-app.INFO: Posts list [] {"uid":"9f4bcbb"}
+[2019-12-02 10:09:31] slim-app.INFO: Posts list [] {"uid":"a01b5d9"}
+[2019-12-02 10:23:00] slim-app.INFO: Posts list [] {"uid":"9ecfd53"}
+[2019-12-02 10:25:06] slim-app.INFO: Posts list [] {"uid":"1ec799b"}
+[2019-12-02 10:25:48] slim-app.INFO: Posts list [] {"uid":"ea6b2ac"}
+[2019-12-02 10:34:07] slim-app.INFO: Posts list [] {"uid":"53941ab"}
+[2019-12-02 10:34:08] slim-app.INFO: Posts list [] {"uid":"70a3f6f"}
+[2019-12-02 10:36:56] slim-app.INFO: Posts list [] {"uid":"b6ccc6f"}
+[2019-12-02 10:36:57] slim-app.INFO: View post: 1 [] {"uid":"2d2e5d6"}
+[2019-12-02 10:37:26] slim-app.INFO: View post: 1 [] {"uid":"1c7fb56"}
+[2019-12-02 10:37:28] slim-app.INFO: Posts list [] {"uid":"d1bcdb2"}
+[2019-12-02 10:38:51] slim-app.INFO: Posts list [] {"uid":"9f29413"}
+[2019-12-02 10:46:35] slim-app.INFO: Posts list [] {"uid":"0fe756f"}
+[2019-12-02 10:46:36] slim-app.INFO: View post: 1 [] {"uid":"ebc605f"}
+[2019-12-02 10:46:41] slim-app.INFO: View post: 1 [] {"uid":"ac4ffee"}
+[2019-12-02 10:46:47] slim-app.INFO: View post: 1 [] {"uid":"7b83385"}
+[2019-12-02 10:46:48] slim-app.INFO: View post: 1 [] {"uid":"21af366"}
+[2019-12-02 10:47:15] slim-app.NOTICE: New comment: SUCCESFUL | ["post_id: 1","name: test csrf","body: test csrf"] [] {"uid":"bc01e7b"}
+[2019-12-02 10:47:15] slim-app.INFO: View post: 1 [] {"uid":"84197cf"}

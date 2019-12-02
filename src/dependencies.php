@@ -26,9 +26,9 @@ $container['view'] = function ($c) {
 };
 
 //csrf
-// $container['csrf'] = function ($c) {
-//     return new \Slim\Csrf\Guard;
-// };
+$container['csrf'] = function ($c) {
+    return new \Slim\Csrf\Guard;
+};
 
 // monolog
 $container['logger'] = function ($c) {

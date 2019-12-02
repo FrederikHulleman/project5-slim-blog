@@ -6,5 +6,9 @@
           <textarea rows="5" name="body">{{ args.body }}</textarea>
           <input type="hidden" name="post_id" value="{{ post.getId() }}">
           <input type="submit" value="Post Comment" class="button">
+
+          {% for key, value in csrf %}
+              <input type="hidden" name="{{ key }}" value="{{ value }}">
+          {% endfor %}
     </form>
 </div>

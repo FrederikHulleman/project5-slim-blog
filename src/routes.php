@@ -35,11 +35,19 @@ $app->map(['GET','POST'],'/post/{post_id}', function ($request, $response, $args
     $this->logger->info("View post: $post_id");
   }
 
+  $nameKey = $this->csrf->getTokenNameKey();
+  $valueKey = $this->csrf->getTokenValueKey();
+  $csrf = [
+    $nameKey => $request->getAttribute($nameKey),
+    $valueKey => $request->getAttribute($valueKey)
+  ];
+
   $comment_mapper->selectComments();
 
   return $this->view->render($response, 'detail.twig', [
    'post' => $post_mapper->posts[0],
    'comments' => $post_mapper->posts[0]->getComments(),
+   'csrf' => $csrf,
    'args' => $args
   ]);
 })->setName('post-detail');

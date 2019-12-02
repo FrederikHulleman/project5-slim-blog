@@ -50,6 +50,108 @@ class PostMapper
   }
 
   /**
+     * Insert listing
+     * @param array $data User Data
+     * @return bool If post inserted true/false
+     */
+    public function insert($data)
+    {
+      //post property date set to now
+      $data['date'] = date('Y-m-d H:i:s');
+      //filter out non comment properties
+      $data = array_filter($this->addPost($data)->toArray());
+
+      $sql = "INSERT INTO posts("
+          . implode(', ', array_keys($data))
+          . ") VALUES(:"
+          . implode(', :', array_keys($data))
+          . ")";
+
+      $statement = $this->db->prepare($sql);
+      $statement->execute($data);
+      if ($statement->rowCount() > 0) {
+          $this->setAlert(
+              'success',
+              '<strong>Add post successful!</strong> ' . $data['title']
+          );
+          return true;
+      } else {
+          $this->setAlert('danger', 'Unable to add post');
+          return false;
+      }
+    }
+
+
+    /**
+     * Update listing
+     * @param array $data User Data
+     * @return integer Indicates the number of records updated
+     */
+    public function update($data)
+    {
+      //post property date set to now
+      $data['date'] = date('Y-m-d H:i:s');
+      //filter out non post properties
+      $data = $this->addPost($data)->toArray();
+
+      $sql = 'UPDATE posts SET ';
+      foreach (array_keys($data) as $key) {
+          if ($key != 'id') {
+              $sql .= " $key = :$key, ";
+          }
+      }
+      $sql = substr($sql, 0, -2);
+      $sql .= ' WHERE id = :id';
+
+      try {
+          $statement = $this->db->prepare($sql);
+          $statement->execute($data);
+      } catch (Exception $e) {
+          echo $e->getMessage();
+      }
+      $count = $statement->rowCount();
+      if ($count > 0) {
+          $this->setAlert(
+              'success',
+              '<strong>Update post successful!</strong> ' . $data['title']
+          );
+      } else {
+          $this->setAlert('danger', 'Unable to update post');
+      }
+      return $count;
+    }
+
+    /**
+     * Delete a single post
+     * @param integer $id ID of the single post to remove
+     * @return bool true/false
+     */
+    public function delete($id)
+    {
+        $sql = "DELETE FROM posts WHERE id=?";
+        try {
+            $statement = $this->db->prepare($sql);
+            $statement->bindValue(1, $id, PDO::PARAM_INT);
+            $statement->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        if ($statement->rowCount() > 0) {
+            $this->setAlert(
+                'danger',
+                'Post Deleted'
+            );
+            return true;
+        } else {
+            $this->setAlert(
+                'danger',
+                '<strong>Unable to remove post</strong>'
+            );
+            return false;
+        }
+    }
+
+  /**
      * Set alerts to show user
      * @param string $type Options: primary/success/info/warning/danger
      * @param string $msg  Message to display
