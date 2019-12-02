@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block title %}Blog posts{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div>{{ args.error }}</div>
+        <div class="new-entry">
+            <h2>Publish New Entry</h2>
+            <form method="post">
+                <label for="title"> Title</label>
+                <input type="text" name="title" value="{{ args.title }}"><br>
+                <label for="entry">Entry</label>
+                <textarea rows="5" name="body">{{ args.body }}</textarea>
+                <input type="submit" value="Publish Entry" class="button">
+                <a href="{{ path_for('posts-list') }}" class="button button-secondary">Cancel</a>
+
+                {% for key, value in csrf %}
+                    <input type="hidden" name="{{ key }}" value="{{ value }}">
+                {% endfor %}
+
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

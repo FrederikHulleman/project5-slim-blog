@@ -347,3 +347,23 @@
 [2019-12-02 10:46:48] slim-app.INFO: View post: 1 [] {"uid":"21af366"}
 [2019-12-02 10:47:15] slim-app.NOTICE: New comment: SUCCESFUL | ["post_id: 1","name: test csrf","body: test csrf"] [] {"uid":"bc01e7b"}
 [2019-12-02 10:47:15] slim-app.INFO: View post: 1 [] {"uid":"84197cf"}
+[2019-12-02 11:12:22] slim-app.INFO: Posts list [] {"uid":"1b308ba"}
+[2019-12-02 11:12:32] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: "] [] {"uid":"96c5fb0"}
+[2019-12-02 11:13:54] slim-app.INFO: Posts list [] {"uid":"94622d2"}
+[2019-12-02 11:14:10] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: "] [] {"uid":"bfe17f9"}
+[2019-12-02 11:14:23] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: "] [] {"uid":"78a1c6b"}
+[2019-12-02 11:14:26] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: "] [] {"uid":"8ecfdb8"}
+[2019-12-02 11:14:29] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: safd","body: "] [] {"uid":"b11d046"}
+[2019-12-02 11:14:57] slim-app.INFO: Posts list [] {"uid":"13c2e9c"}
+[2019-12-02 11:15:00] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: "] [] {"uid":"d523a6c"}
+[2019-12-02 11:15:04] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: fdadfsafds","body: "] [] {"uid":"ae4676f"}
+[2019-12-02 11:15:09] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: asdffsdfs"] [] {"uid":"948fd33"}
+[2019-12-02 11:15:26] slim-app.NOTICE: New post: SUCCESFUL | ["title: 1st new post title","body: 1st new post body"] [] {"uid":"221b8f1"}
+[2019-12-02 11:16:08] slim-app.NOTICE: New post: UNSUCCESFUL | ["title: ","body: "] [] {"uid":"a1e9b1a"}
+[2019-12-02 11:16:12] slim-app.NOTICE: New post: SUCCESFUL | ["title: 1","body: 1"] [] {"uid":"ff718ea"}
+[2019-12-02 11:16:24] slim-app.INFO: Posts list [] {"uid":"6b20af7"}
+[2019-12-02 11:16:32] slim-app.NOTICE: New post: SUCCESFUL | ["title: 2","body: 2"] [] {"uid":"7fb43cf"}
+[2019-12-02 11:16:32] slim-app.INFO: Posts list [] {"uid":"dde36f0"}
+[2019-12-02 11:16:57] slim-app.INFO: Posts list [] {"uid":"45b1449"}
+[2019-12-02 11:16:59] slim-app.INFO: View post: 1 [] {"uid":"530bd3e"}
+[2019-12-02 11:17:05] slim-app.INFO: Posts list [] {"uid":"9a3ac1b"}
