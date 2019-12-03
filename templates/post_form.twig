@@ -1,12 +1,7 @@
 {% extends "base.twig" %}
 
 {% block title %}
-{%if args.post_id is not empty %}
-Edit
-{% else %}
-New
-{% endif %}
-post
+{%if args.post_id is not empty %} Edit {% else %} New {% endif %} post
 {% endblock %}
 
 {% block content %}
@@ -14,13 +9,13 @@ post
     <div class="container">
         <div>{{ args.error }}</div>
         <div class="new-entry">
-            <h2>Publish New Entry</h2>
+            <h2>{%if args.post_id is not empty %} Edit {% else %} Publish New {% endif %} Entry</h2>
             <form method="post">
                 <label for="title"> Title</label>
                 <input type="text" name="title" value="{{ args.title }}"><br>
                 <label for="entry">Entry</label>
                 <textarea rows="5" name="body">{{ args.body }}</textarea>
-                <input type="submit" value="Publish Entry" class="button">
+                <input type="submit" value="{%if args.post_id is not empty %} Update {% else %} Publish {% endif %} Entry" class="button">
                 <a href="{{ path_for('posts-list') }}" class="button button-secondary">Cancel</a>
 
                 {% for key, value in csrf %}

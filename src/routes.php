@@ -10,7 +10,7 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
     $args = array_merge($args, $request->getParsedBody());
     $args = filter_var_array($args,FILTER_SANITIZE_STRING);
 
-    $log = json_encode(["title: ".$args['title'],"body: ".$args['body']]);
+    $log = json_encode(["title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
       $post_mapper = new PostMapper($this->db);
 
@@ -53,23 +53,17 @@ $app->map(['GET','POST'],'/post/edit/{post_id}', function ($request, $response, 
     $args = array_merge($args, $request->getParsedBody());
     $args = filter_var_array($args,FILTER_SANITIZE_STRING);
 
-    $log = json_encode(["post_id: $post_id","title: ".$args['title'],"body: ".$args['body']]);
+    $log = json_encode(["post_id: $post_id","title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
-      $this->logger->notice("NOT EMPTY");
-
-      $post_mapper->update($args);
-      $args['error'] = $post_mapper->getAlert()[0]['message'];
-      var_dump($args['error']);
-      /*if($count = $post_mapper->update($args)) {
-          var_dump($count);
+      if($count = $post_mapper->update($args)) {
           $this->logger->notice("Update post: SUCCESFUL | $log");
           //to avoid resubmitting values:
-          //$url = $this->router->pathFor('post-detail',['post_id' => $post_id]);
-          //return $response->withStatus(302)->withHeader('Location',$url);
+          $url = $this->router->pathFor('post-detail',['post_id' => $post_id]);
+          return $response->withStatus(302)->withHeader('Location',$url);
         } else {
           $args['error'] = $post_mapper->getAlert()[0]['message'];
           $this->logger->notice("Update post: UNSUCCESFUL | $log");
-        }*/
+        }
       }
       else {
         $args['error'] = "all fields required";

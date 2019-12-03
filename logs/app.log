@@ -459,3 +459,53 @@
 [2019-12-02 13:42:31] slim-app.NOTICE: NOT EMPTY [] {"uid":"4598323"}
 [2019-12-02 13:44:27] slim-app.INFO: Edit post: 1 [] {"uid":"6e29c71"}
 [2019-12-02 13:44:30] slim-app.NOTICE: NOT EMPTY [] {"uid":"9d342d9"}
+[2019-12-03 08:11:59] slim-app.INFO: Posts list [] {"uid":"df87ce4"}
+[2019-12-03 08:12:05] slim-app.INFO: View post: 1 [] {"uid":"4485634"}
+[2019-12-03 08:12:09] slim-app.INFO: Edit post: 1 [] {"uid":"11f7ddf"}
+[2019-12-03 08:12:19] slim-app.NOTICE: NOT EMPTY [] {"uid":"61ce34e"}
+[2019-12-03 08:13:17] slim-app.INFO: Edit post: 1 [] {"uid":"6f353e5"}
+[2019-12-03 08:13:21] slim-app.NOTICE: NOT EMPTY [] {"uid":"8859a17"}
+[2019-12-03 08:13:30] slim-app.INFO: Posts list [] {"uid":"8b1c56b"}
+[2019-12-03 08:14:05] slim-app.INFO: View post: 2 [] {"uid":"9875409"}
+[2019-12-03 08:14:07] slim-app.INFO: Edit post: 2 [] {"uid":"612cff6"}
+[2019-12-03 08:14:11] slim-app.NOTICE: NOT EMPTY [] {"uid":"76a30ad"}
+[2019-12-03 08:15:51] slim-app.NOTICE: Update post: SUCCESFUL | ["post_id: 2","title: Guus2233","body: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui sapien eget mi proin sed libero enim. Turpis cursus in hac habitasse. Ipsum suspendisse ultrices gravida dictum fusce ut. Urna cursus eget nunc scelerisque viverra mauris in. Condimentum id venenatis a condimentum vitae sapien. Quis enim lobortis scelerisque fermentum dui faucibus in. Urna molestie at elementum eu facilisis sed odio morbi. Neque sodales ut etiam sit amet nisl purus in. Libero id faucibus nisl tincidunt eget nullam non nisi. Non blandit massa enim nec dui nunc. Elementum facilisis leo vel fringilla est ullamcorper. Viverra mauris in aliquam sem fringilla ut morbi tincidunt augue. Quisque sagittis purus sit amet volutpat consequat mauris. Turpis in eu mi bibendum neque egestas. Justo nec ultrices dui sapien eget mi proin sed libero. Enim lobortis scelerisque fermentum dui.\r\n\r\nTurpis massa sed elementum tempus egestas. Sem integer vitae justo eget magna fermentum iaculis eu. Eget mauris pharetra et ultrices. Dui accumsan sit amet nulla facilisi morbi tempus iaculis. At tellus at urna condimentum mattis pellentesque. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Tristique magna sit amet purus gravida quis blandit turpis. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Ut tortor pretium viverra suspendisse potenti nullam. Lectus mauris ultrices eros in cursus. Id aliquet lectus proin nibh. Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Bibendum neque egestas congue quisque egestas diam in arcu. Felis donec et odio pellentesque diam volutpat commodo sed. Varius vel pharetra vel turpis nunc eget. In eu mi bibendum neque egestas congue quisque egestas."] [] {"uid":"66524a1"}
+[2019-12-03 08:16:10] slim-app.NOTICE: Update post: SUCCESFUL | ["post_id: 2","title: Guus2233","body: Guus12345"] [] {"uid":"5b1ead9"}
+[2019-12-03 08:29:50] slim-app.NOTICE: New post: SUCCESFUL | ["title: Nieuw","body: Nieuw"] [] {"uid":"e90059e"}
+[2019-12-03 08:29:50] slim-app.INFO: Posts list [] {"uid":"c0749ca"}
+[2019-12-03 08:30:00] slim-app.INFO: View post: 12 [] {"uid":"00c5ff0"}
+[2019-12-03 08:30:04] slim-app.NOTICE: New comment: SUCCESFUL | ["post_id: 12","name: 1","body: 1"] [] {"uid":"eb94633"}
+[2019-12-03 08:30:04] slim-app.INFO: View post: 12 [] {"uid":"cfa3bb6"}
+[2019-12-03 08:30:13] slim-app.INFO: Edit post: 12 [] {"uid":"ebb65b0"}
+[2019-12-03 08:30:17] slim-app.NOTICE: Update post: SUCCESFUL | ["post_id: 12","title: Nieuw2","body: Nieuw2"] [] {"uid":"72da9a0"}
+[2019-12-03 08:30:17] slim-app.INFO: View post: 12 [] {"uid":"314d46e"}
+[2019-12-03 08:34:43] slim-app.INFO: Posts list [] {"uid":"7bd886b"}
+[2019-12-03 08:37:11] slim-app.INFO: Posts list [] {"uid":"b92140a"}
+[2019-12-03 08:37:11] slim-app.INFO: Posts list [] {"uid":"78f51ca"}
+[2019-12-03 08:37:19] slim-app.INFO: Posts list [] {"uid":"8815db5"}
+[2019-12-03 08:37:21] slim-app.INFO: View post: 12 [] {"uid":"a858f95"}
+[2019-12-03 08:37:23] slim-app.INFO: Edit post: 12 [] {"uid":"d53d934"}
+[2019-12-03 08:40:25] slim-app.INFO: Posts list [] {"uid":"df7f51d"}
+[2019-12-03 08:40:32] slim-app.NOTICE: New post: SUCCESFUL | ["title: 1"] [] {"uid":"61486ab"}
+[2019-12-03 08:40:32] slim-app.INFO: Posts list [] {"uid":"082ed95"}
+[2019-12-03 08:40:34] slim-app.INFO: View post: 13 [] {"uid":"2d37810"}
+[2019-12-03 08:40:37] slim-app.INFO: Edit post: 13 [] {"uid":"fac77e6"}
+[2019-12-03 08:42:08] slim-app.INFO: Posts list [] {"uid":"179643b"}
+[2019-12-03 08:42:47] slim-app.INFO: Posts list [] {"uid":"ea6e9d9"}
+[2019-12-03 08:42:53] slim-app.INFO: Posts list [] {"uid":"024dc10"}
+[2019-12-03 08:42:54] slim-app.INFO: View post: 13 [] {"uid":"9edcf72"}
+[2019-12-03 08:42:55] slim-app.INFO: Edit post: 13 [] {"uid":"1d6416c"}
+[2019-12-03 08:43:46] slim-app.INFO: Posts list [] {"uid":"88b85d4"}
+[2019-12-03 08:43:50] slim-app.NOTICE: New post: SUCCESFUL | ["title: 2"] [] {"uid":"31b5bbc"}
+[2019-12-03 08:43:50] slim-app.INFO: Posts list [] {"uid":"ed8c33f"}
+[2019-12-03 08:43:52] slim-app.INFO: View post: 14 [] {"uid":"4234bf8"}
+[2019-12-03 08:43:54] slim-app.INFO: Edit post: 14 [] {"uid":"9e5222a"}
+[2019-12-03 08:44:09] slim-app.NOTICE: Update post: SUCCESFUL | ["post_id: 14","title: 2a"] [] {"uid":"6b5c04a"}
+[2019-12-03 08:44:09] slim-app.INFO: View post: 14 [] {"uid":"be9382a"}
+[2019-12-03 08:44:42] slim-app.NOTICE: New post: SUCCESFUL | ["title: 3"] [] {"uid":"be76451"}
+[2019-12-03 08:44:42] slim-app.INFO: Posts list [] {"uid":"08c2e71"}
+[2019-12-03 08:44:43] slim-app.INFO: View post: 15 [] {"uid":"ef6a96c"}
+[2019-12-03 08:44:45] slim-app.INFO: Edit post: 15 [] {"uid":"a6be3b3"}
+[2019-12-03 08:44:51] slim-app.NOTICE: Update post: SUCCESFUL | ["post_id: 15","title: 3a"] [] {"uid":"a6a10fc"}
+[2019-12-03 08:44:51] slim-app.INFO: View post: 15 [] {"uid":"f4af7de"}
+[2019-12-03 08:44:54] slim-app.INFO: Posts list [] {"uid":"7cebc4a"}

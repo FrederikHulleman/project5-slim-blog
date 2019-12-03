@@ -102,15 +102,15 @@ class PostMapper
       }
       $sql = substr($sql, 0, -2);
       $sql .= ' WHERE post_id = :post_id';
-
+      var_dump($sql);
       try {
           $statement = $this->db->prepare($sql);
-          foreach (array_keys($data) as $key) {
-              if ($key != 'post_id' && $key != 'comments') {
-                  $results->bindValue(':$key',$data[$key],PDO::PARAM_STR);
-              }
-          }
-          $results->bindValue(':post_id',$data['post_id'],PDO::PARAM_INT);
+          // foreach (array_keys($data) as $key) {
+          //     if ($key != 'post_id' && $key != 'comments') {
+          //         $results->bindValue(':$key',$data[$key],PDO::PARAM_STR);
+          //     }
+          // }
+          //$results->bindValue(':post_id',$data['post_id'],PDO::PARAM_INT);
           $statement->execute($data);
       } catch (Exception $e) {
           $this->setAlert('danger',$e->getMessage());
