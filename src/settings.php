@@ -2,13 +2,15 @@
 return [
     'settings' => [
         'displayErrorDetails' => true,
+        //'determineRouteBeforeAppMiddleware' => false,
+        //'addContentLengthHeader' => false, // Allow the web server to send the content-length header
 
         // Renderer settings
         'renderer' => [
             'template_path' => __DIR__ . '/../templates/',
         ],
 
-        //twig view settings 
+        //twig view settings
         'view' => [
           'template_path' => __DIR__ . '/../templates/',
           'cache' => false,
@@ -19,11 +21,17 @@ return [
         'logger' => [
             'name' => 'slim-app',
             'path' => __DIR__ . '/../logs/app.log',
+            //'level' => \Monolog\Logger::DEBUG,
         ],
 
         //db settings
         'db' => [
-            'path' => 'sqlite:' . __DIR__.'/../src/blog.db',
+            'driver' => 'sqlite',
+            'host' => 'localhost',
+            'database' => __DIR__ . '/../src/blog.db',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
         ],
     ],
 ];

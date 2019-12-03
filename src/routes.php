@@ -1,8 +1,22 @@
 <?php
 // Routes
-use Project5SlimBlog\PostMapper;
-use Project5SlimBlog\CommentMapper;
+use Project5SlimBlog\Post;
+use Project5SlimBlog\Comment;
 
+$app->get('/[{posts}]', function ($request, $response, $args) {
+    $this->logger->info("Posts list");
+    $post_model = new Post();
+    $posts = $post_model->all();
+    //$posts = $this->db->table('posts')->get();
+    // $post_mapper = new PostMapper($this->db);
+    // $post_mapper->selectPosts();
+    var_dump($posts);
+    return $this->view->render($response, 'blog.twig', [
+      'posts' => $posts
+    ]);
+})->setName('posts-list');
+
+/*
 $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
 
   if($request->getMethod() == "POST") {
@@ -88,6 +102,22 @@ $app->map(['GET','POST'],'/post/edit/{post_id}', function ($request, $response, 
   ]);
 })->setName('edit-post');
 
+// GET /post/post_id
+$app->get('/post/{post_id}', function ($request, $response, $args) {
+    $post_id = (int)$args['post_id'];
+    $post = $this->db->table('posts')->find($post_id);
+    var_dump($post);
+
+    return $this->view->render($response, 'detail.twig', [
+     'post' => $post
+     //'comments' => $post_mapper->posts[0]->getComments(),
+     //'csrf' => $csrf,
+     //'args' => $args
+    ]);
+  })->setName('post-detail');
+
+
+/*
 $app->map(['GET','POST'],'/post/{post_id}', function ($request, $response, $args) {
   $post_id = (int)$args['post_id'];
 
@@ -136,13 +166,4 @@ $app->map(['GET','POST'],'/post/{post_id}', function ($request, $response, $args
    'args' => $args
   ]);
 })->setName('post-detail');
-
-$app->get('/[{posts}]', function ($request, $response, $args) {
-    $this->logger->info("Posts list");
-    $post_mapper = new PostMapper($this->db);
-    $post_mapper->selectPosts();
-
-    return $this->view->render($response, 'blog.twig', [
-      'posts' => $post_mapper->posts
-    ]);
-})->setName('posts-list');
+*/

@@ -41,16 +41,24 @@ $container['logger'] = function ($c) {
 
 // database
 $container['db'] = function ($c) {
-    try {
-      //$db = $c['settings']['db'];
-      $settings = $c->get('settings')['db'];
-      $pdo = new PDO($settings['path']);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-      return $pdo;
-    }
-    catch (Exception $e) {
-      echo "Unable to connect <br>" . $e->getMessage();
-      exit;
-    }
+  $capsule = new \Illuminate\Database\Capsule\Manager;
+  $settings = $c->get('settings')['db'];
+  $capsule->addConnection($settings);
+
+  $capsule->setAsGlobal();
+  $capsule->bootEloquent();
+
+  return $capsule;
 };
+  // try {
+  //   //$db = $c['settings']['db'];
+  //   $settings = $c->get('settings')['db'];
+  //   $pdo = new PDO($settings['path']);
+  //   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  //   $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+  //   return $pdo;
+  // }
+  // catch (Exception $e) {
+  //   echo "Unable to connect <br>" . $e->getMessage();
+  //   exit;
+  // }
