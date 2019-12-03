@@ -2,8 +2,8 @@
 return [
     'settings' => [
         'displayErrorDetails' => true,
-        //'determineRouteBeforeAppMiddleware' => false,
-        //'addContentLengthHeader' => false, // Allow the web server to send the content-length header
+        'determineRouteBeforeAppMiddleware' => false,
+        'addContentLengthHeader' => false, // Allow the web server to send the content-length header
 
         // Renderer settings
         'renderer' => [
@@ -21,7 +21,7 @@ return [
         'logger' => [
             'name' => 'slim-app',
             'path' => __DIR__ . '/../logs/app.log',
-            //'level' => \Monolog\Logger::DEBUG,
+            'level' => \Monolog\Logger::DEBUG,
         ],
 
         //db settings
@@ -32,6 +32,7 @@ return [
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
+            'foreign_key_constraints' => true,
         ],
     ],
 ];

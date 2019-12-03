@@ -40,16 +40,26 @@ $container['logger'] = function ($c) {
 };
 
 // database
-$container['db'] = function ($c) {
-  $capsule = new \Illuminate\Database\Capsule\Manager;
-  $settings = $c->get('settings')['db'];
-  $capsule->addConnection($settings);
+// thanks to https://stackoverflow.com/questions/38256812/call-to-a-member-function-connection-on-null-error-in-slim-using-laravels-elo
+$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container['settings']['db']);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
 
-  $capsule->setAsGlobal();
-  $capsule->bootEloquent();
-
-  return $capsule;
+$container['db'] = function ($container) use ($capsule) {
+    return $capsule;
 };
+
+// $container['db'] = function ($c) {
+//   $capsule = new \Illuminate\Database\Capsule\Manager;
+//   $settings = $c->get('settings')['db'];
+//   $capsule->addConnection($settings);
+//
+//   $capsule->setAsGlobal();
+//   $capsule->bootEloquent();
+//
+//   return $capsule;
+// };
   // try {
   //   //$db = $c['settings']['db'];
   //   $settings = $c->get('settings')['db'];

@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 
-{% block title %}{{ post.getTitle() }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
 
@@ -9,12 +9,12 @@
         <div>{{ args.error }}</div>
         <div class="entry-list single">
             <article>
-                <h1>{{ post.getTitle() }}</h1>
-                <time datetime="{{ post.getRawDate() }}">{{ post.getFormattedDate() }}</time>
+                <h1>{{ post.title }}</h1>
+                <time datetime="{{ post.date }}">{{ post.date|date("F j, Y | H:i:s") }}</time>
                 <div class="entry">
-                   {{ post.getBody() }}
+                   {{ post.body }}
 
-                    <p><a class="link" href="{{ path_for('edit-post', { 'post_id': post.getId() }) }}">Edit Entry</a></p>
+                    <p><a class="link" href="{{ path_for('edit-post', { 'post_id': post.id }) }}">Edit Entry</a></p>
                 </div>
             </article>
         </div>
