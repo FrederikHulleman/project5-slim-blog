@@ -1,0 +1,30 @@
+[2019-12-04 14:02:56] slim-app.INFO: View post: 3 | SUCCESSFUL [] {"uid":"1433d2d"}
+[2019-12-04 14:03:02] slim-app.NOTICE: New comment | UNSUCCESSFUL | all fields required [] {"uid":"ace3766"}
+[2019-12-04 14:03:02] slim-app.INFO: View post: 3 | SUCCESSFUL [] {"uid":"ace3766"}
+[2019-12-04 14:03:11] slim-app.INFO: Edit post: 3 | VIEW | SUCCESSFUL [] {"uid":"187946b"}
+[2019-12-04 14:03:14] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"eaf5849"}
+[2019-12-04 14:07:40] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"a0fadf2"}
+[2019-12-04 14:07:41] slim-app.INFO: View post: 3 | SUCCESSFUL [] {"uid":"ec33c80"}
+[2019-12-04 14:07:42] slim-app.INFO: Edit post: 3 | VIEW | SUCCESSFUL [] {"uid":"a3cd359"}
+[2019-12-04 14:39:10] slim-app.INFO: Edit post: 3 | VIEW | SUCCESSFUL [] {"uid":"58be04d"}
+[2019-12-04 14:39:50] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"eafbeb0"}
+[2019-12-04 14:41:08] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"245d57e"}
+[2019-12-04 14:41:17] slim-app.NOTICE: Edit post: 16 | SUCCESSFUL | ["title: sadfv2"] [] {"uid":"53bb396"}
+[2019-12-04 14:41:17] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"57186ca"}
+[2019-12-04 14:41:46] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"daf9340"}
+[2019-12-04 14:41:51] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"4b2d267"}
+[2019-12-04 14:43:49] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6a1938f"}
+[2019-12-04 14:43:51] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"92890a6"}
+[2019-12-04 14:43:53] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"9c37607"}
+[2019-12-04 14:44:19] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"e3c1c35"}
+[2019-12-04 14:44:21] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"3402f98"}
+[2019-12-04 14:44:57] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"f2b21d4"}
+[2019-12-04 14:45:00] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"3212429"}
+[2019-12-04 14:45:03] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4af78f8"}
+[2019-12-04 14:45:05] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"5bc6b9f"}
+[2019-12-04 14:45:07] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"7bde3b8"}
+[2019-12-04 14:45:10] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"156d211"}
+[2019-12-04 14:45:38] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"7616b4e"}
+[2019-12-04 14:46:40] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"a8f0763"}
+[2019-12-04 14:46:48] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"1e8ca9c"}
+[2019-12-04 14:46:49] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"6dc46d9"}

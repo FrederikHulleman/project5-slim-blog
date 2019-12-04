@@ -1,35 +1,46 @@
 {% extends "base.twig" %}
 
+{%if args.id is not empty %}
+  {% set label = 'Update entry' %}
+  {% set path = path_for('post-detail', { 'id': args.id }) %}
+{% else %}
+  {% set label = 'Publish new entry' %}
+  {% set path = path_for('posts-list') %}
+{% endif %}
+
 {% block title %}
-{%if args.id is not empty %} Edit {% else %} New {% endif %} post
+{{ label }}
 {% endblock %}
 
 {% block content %}
-<section>
-    <div class="container">
-      {% if args.msg_content is not empty %}
-        <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
-      {% endif %}
-        <div class="new-entry">
-            <h2>{%if args.id is not empty %} Edit {% else %} Publish New {% endif %} Entry</h2>
-            <form method="post">
-                <label for="title"> Title</label>
-                <input type="text" name="title" value="{{ args.title }}"><br>
-                <label for="entry">Entry</label>
-                <textarea rows="5" name="body">{{ args.body }}</textarea>
-                <input type="submit" value="{%if args.id is not empty %} Update {% else %} Publish {% endif %} Entry" class="button">
-                <a href="{{ path_for('posts-list') }}" class="button button-secondary">Cancel</a>
+  <section>
+      <div class="container">
+        {% if args.msg_content is not empty %}
+          <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
+        {% endif %}
+          <div class="new-entry">
+              <h2>{{ label }}</h2>
+              <form method="post">
+                  <label for="title"> Title</label>
+                  <input type="text" name="title" value="{{ args.title }}"><br>
+                  <label for="entry">Entry</label>
+                  <textarea rows="5" name="body">{{ args.body }}</textarea>
+                  <input type="submit" value="{{ label }}" class="button">
 
-                {% for key, value in csrf %}
-                    <input type="hidden" name="{{ key }}" value="{{ value }}">
-                {% endfor %}
 
-                {%if args.id is not empty %}
-                  <input type="hidden" name="id" value="{{ args.id }}">
-                {% endif %}
+                  <a href="{{ path }}" class="button button-secondary">Cancel</a>
 
-            </form>
-        </div>
-    </div>
-</section>
+
+                  {% for key, value in csrf %}
+                      <input type="hidden" name="{{ key }}" value="{{ value }}">
+                  {% endfor %}
+
+                  {%if args.id is not empty %}
+                    <input type="hidden" name="id" value="{{ args.id }}">
+                  {% endif %}
+
+              </form>
+          </div>
+      </div>
+  </section>
 {% endblock %}
