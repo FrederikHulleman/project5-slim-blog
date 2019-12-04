@@ -1,29 +1,31 @@
 {% extends "base.twig" %}
 
 {% block title %}
-{%if args.post_id is not empty %} Edit {% else %} New {% endif %} post
+{%if args.id is not empty %} Edit {% else %} New {% endif %} post
 {% endblock %}
 
 {% block content %}
 <section>
     <div class="container">
-        <div>{{ args.error }}</div>
+      {% if args.msg_content is not empty %}
+        <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
+      {% endif %}
         <div class="new-entry">
-            <h2>{%if args.post_id is not empty %} Edit {% else %} Publish New {% endif %} Entry</h2>
+            <h2>{%if args.id is not empty %} Edit {% else %} Publish New {% endif %} Entry</h2>
             <form method="post">
                 <label for="title"> Title</label>
                 <input type="text" name="title" value="{{ args.title }}"><br>
                 <label for="entry">Entry</label>
                 <textarea rows="5" name="body">{{ args.body }}</textarea>
-                <input type="submit" value="{%if args.post_id is not empty %} Update {% else %} Publish {% endif %} Entry" class="button">
+                <input type="submit" value="{%if args.id is not empty %} Update {% else %} Publish {% endif %} Entry" class="button">
                 <a href="{{ path_for('posts-list') }}" class="button button-secondary">Cancel</a>
 
                 {% for key, value in csrf %}
                     <input type="hidden" name="{{ key }}" value="{{ value }}">
                 {% endfor %}
 
-                {%if args.post_id is not empty %}
-                  <input type="hidden" name="post_id" value="{{ args.post_id }}">
+                {%if args.id is not empty %}
+                  <input type="hidden" name="id" value="{{ args.id }}">
                 {% endif %}
 
             </form>

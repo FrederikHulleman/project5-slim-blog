@@ -6,7 +6,9 @@
 
 <section>
     <div class="container">
-        <div>{{ args.error }}</div>
+      {% if args.msg_content is not empty %}
+        <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
+      {% endif %}
         <div class="entry-list single">
             <article>
                 <h1>{{ post.title }}</h1>
@@ -14,7 +16,7 @@
                 <div class="entry">
                    {{ post.body }}
 
-                    <p><a class="link" href="{{ path_for('edit-post', { 'post_id': post.id }) }}">Edit Entry</a></p>
+                    <p><a class="link" href="{{ path_for('edit-post', { 'id': post.id }) }}">Edit Entry</a></p>
                 </div>
             </article>
         </div>
