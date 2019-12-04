@@ -7,7 +7,7 @@
           <input type="hidden" name="id" value="{{ post.id }}">
           <input type="submit" value="Post Comment" class="button">
 
-          {% for key, value in csrf %}
+          {% for key, value in csrf_comment %}
               <input type="hidden" name="{{ key }}" value="{{ value }}">
           {% endfor %}
     </form>

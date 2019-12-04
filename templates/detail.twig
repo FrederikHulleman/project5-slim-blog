@@ -16,7 +16,14 @@
                 <div class="entry">
                    {{ post.body }}
 
-                    <p><a class="link" href="{{ path_for('edit-post', { 'id': post.id }) }}">Edit Entry</a></p>
+                   <form method="post" action="{{ path_for('delete') }}" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                   <input type="hidden" value="{{ post.id }}" name="delete">
+                   <a class="button" href="{{ path_for('edit', { 'id': post.id }) }}">Edit Entry</a> |
+                   <input type="submit" class="button" value="Delete">
+                   {% for key, value in csrf_delete %}
+                       <input type="hidden" name="{{ key }}" value="{{ value }}">
+                   {% endfor %}
+                   </form>
                 </div>
             </article>
         </div>

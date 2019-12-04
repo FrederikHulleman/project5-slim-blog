@@ -14,8 +14,13 @@ class Post extends Model {
     {
         return $this->hasMany('Project5SlimBlog\Comment');
     }
+
+    public function delete()
+    {
+      $this->comments()->delete();
+      parent::delete();
+    }
+
 }
-
-
 
 ?>
