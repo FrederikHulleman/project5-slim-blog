@@ -6,26 +6,28 @@
 
 <section>
     <div class="container">
-      {% if args.msg_content is not empty %}
-        <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
-      {% endif %}
         <div class="entry-list single">
+        {% if message.content is not empty %}
+          <p class="message {{ message.type }}">{{ message.content }}</p>
+        {% endif %}
             <article>
                 <h1>{{ post.title }}</h1>
                 <time datetime="{{ post.date }}">{{ post.date|date("F j, Y | H:i:s") }}</time>
                 <div class="entry">
                    {{ post.body }}
 
-                   <form method="post" action="{{ path_for('delete') }}" onsubmit="return confirm('Are you sure you want to delete this post?');">
-                   <input type="hidden" value="{{ post.id }}" name="delete">
-                   <a class="button button-secondary" href="{{ path_for('edit', { 'id': post.id }) }}">Edit Entry</a> |
-                   <input type="submit" class="button" value="Delete">
-                   {% for key, value in csrf_delete %}
-                       <input type="hidden" name="{{ key }}" value="{{ value }}">
-                   {% endfor %}
-                   </form>
                 </div>
             </article>
+        </div>
+        <div class="edit">
+         <form method="post" action="{{ path_for('delete') }}" onsubmit="return confirm('Are you sure you want to delete this post?');">
+         <input type="hidden" value="{{ post.id }}" name="delete">
+         <a class="button" href="{{ path_for('edit', { 'id': post.id }) }}">Edit Entry</a>
+         <input type="submit" class="button" value="Delete">
+         {% for key, value in csrf_delete %}
+             <input type="hidden" name="{{ key }}" value="{{ value }}">
+         {% endfor %}
+         </form>
         </div>
     </div>
 </section>

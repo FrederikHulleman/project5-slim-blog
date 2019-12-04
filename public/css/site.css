@@ -67,11 +67,29 @@ footer a {
 	font-weight: bold;
 	font-size: 13px;
 	font-family: 'Noto Sans', sans-serif;
+	/* padding: 8px 10px 6px 10px;
+	background: #678f89;
+	border: 2px solid #678f89;
+	border-radius: 4px;
+	text-decoration: none;
+	color: #FFF;
+	position: relative;
+	text-align: center;
+	font-size: 14px; */
 }
 .button.button-secondary {
 	background: transparent;
 	border-color: #000;
 	color: #000;
+	/* padding: 8px 10px 6px 10px;
+	background: #678f89;
+	border: 2px solid #678f89;
+	border-radius: 4px;
+	text-decoration: none;
+	color: #FFF;
+	position: relative;
+	text-align: center;
+	font-size: 14px; */
 }
 .button.button-round {
 	border-radius: 100px;
@@ -206,6 +224,14 @@ a.link {
 	margin: 0 auto;
 }
 
+.edit,
+.delete {
+	padding-bottom: 80px;
+	text-align: center;
+	margin: 0 auto;
+
+}
+
 
 
 /* ==========================================================================
@@ -260,4 +286,19 @@ form textarea:hover {
 }
 input[type=submit] {
 	margin-right: 5px;
+}
+
+.message  {
+	border-radius:4px;
+	padding:1.5rem;
+	color:#fff;
+	text-align:center;
+}
+
+.message.error {
+	background-color: #ed5a5a;
+}
+
+.message.success {
+	background-color: #78CF82;
 }

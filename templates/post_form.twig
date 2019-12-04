@@ -15,11 +15,11 @@
 {% block content %}
   <section>
       <div class="container">
-        {% if args.msg_content is not empty %}
-          <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
-        {% endif %}
           <div class="new-entry">
               <h2>{{ label }}</h2>
+              {% if message.content is not empty %}
+                <p class="message {{ message.type }}">{{ message.content }}</p>
+              {% endif %}
               <form method="post">
                   <label for="title"> Title</label>
                   <input type="text" name="title" value="{{ args.title }}"><br>

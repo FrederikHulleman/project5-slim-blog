@@ -3,12 +3,14 @@
 {% block title %}Blog posts{% endblock %}
 
 {% block content %}
+
 <section>
     <div class="container">
-    {% if args.msg_content is not empty %}
-      <div id="message" class="{{ args.msg_type }}">{{ args.msg_content }}</div>
-    {% endif %}
+
       <div class="entry-list">
+      {% if message.content is not empty %}
+        <p class="message {{ message.type }}">{{ message.content }}</p>
+      {% endif %}
         {% for post in posts %}
             {{ include("post.twig") }}
         {%  else %}

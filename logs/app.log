@@ -28,3 +28,128 @@
 [2019-12-04 14:46:40] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"a8f0763"}
 [2019-12-04 14:46:48] slim-app.INFO: Edit post: 16 | VIEW | SUCCESSFUL [] {"uid":"1e8ca9c"}
 [2019-12-04 14:46:49] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"6dc46d9"}
+[2019-12-04 15:01:24] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"f225ef0"}
+[2019-12-04 15:01:31] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"03b9c0a"}
+[2019-12-04 15:01:37] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"a16e65d"}
+[2019-12-04 15:01:42] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"646da6d"}
+[2019-12-04 15:01:42] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"6627166"}
+[2019-12-04 15:01:43] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"83c2375"}
+[2019-12-04 15:02:06] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"5ccb3f5"}
+[2019-12-04 15:02:21] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"0825690"}
+[2019-12-04 15:04:04] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"67194ed"}
+[2019-12-04 15:04:09] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"ca3b521"}
+[2019-12-04 15:04:09] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"318a33c"}
+[2019-12-04 15:06:08] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"ff68be1"}
+[2019-12-04 15:07:01] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"66d5d61"}
+[2019-12-04 15:08:14] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"2aed075"}
+[2019-12-04 15:08:15] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"75a60e2"}
+[2019-12-04 15:08:20] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"0ef56f3"}
+[2019-12-04 15:08:48] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"6bbd2b6"}
+[2019-12-04 15:09:28] slim-app.INFO: Edit post: 1 | VIEW | SUCCESSFUL [] {"uid":"089dfee"}
+[2019-12-04 15:09:31] slim-app.INFO: View post: 1 | SUCCESSFUL [] {"uid":"10579ca"}
+[2019-12-04 15:09:34] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"a96ccd0"}
+[2019-12-04 15:09:39] slim-app.INFO: View post: 4 | SUCCESSFUL [] {"uid":"2fcaa9e"}
+[2019-12-04 15:09:44] slim-app.INFO: Delete post: 4 | SUCCESSFUL [] {"uid":"3b30aae"}
+[2019-12-04 15:09:44] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"172bc83"}
+[2019-12-04 15:09:48] slim-app.INFO: View post: 16 | SUCCESSFUL [] {"uid":"5fa46aa"}
+[2019-12-04 15:09:52] slim-app.INFO: Delete post: 16 | SUCCESSFUL [] {"uid":"cc0009f"}
+[2019-12-04 15:09:52] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"c8c501e"}
+[2019-12-04 15:10:00] slim-app.INFO: View post: 3 | SUCCESSFUL [] {"uid":"6a93b6f"}
+[2019-12-04 15:10:06] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"8ffae77"}
+[2019-12-04 15:11:48] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6e215ab"}
+[2019-12-04 15:14:48] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"ce3d006"}
+[2019-12-04 15:14:54] slim-app.INFO: View post: 15 | SUCCESSFUL [] {"uid":"69a30a7"}
+[2019-12-04 15:17:46] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"9048231"}
+[2019-12-04 15:20:24] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"94d62bb"}
+[2019-12-04 15:22:31] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"448abdc"}
+[2019-12-04 15:22:42] slim-app.NOTICE: New post | SUCCESSFUL | ["title: a"] [] {"uid":"05eb408"}
+[2019-12-04 15:22:42] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"ab3e0b3"}
+[2019-12-04 15:23:34] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"cba1fb7"}
+[2019-12-04 15:23:49] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"5eeb5b9"}
+[2019-12-04 15:29:05] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"cfab8d1"}
+[2019-12-04 15:29:07] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"7d09865"}
+[2019-12-04 15:29:37] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"7a40b3a"}
+[2019-12-04 15:29:42] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"30a3acf"}
+[2019-12-04 15:30:35] slim-app.NOTICE: View posts list | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" order by "date" desc) [] {"uid":"47e403b"}
+[2019-12-04 15:30:56] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"64c813c"}
+[2019-12-04 15:33:29] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"03b7bc7"}
+[2019-12-04 15:33:35] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"5bd2398"}
+[2019-12-04 15:33:39] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"c3bb9f8"}
+[2019-12-04 15:34:18] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"870480d"}
+[2019-12-04 15:34:36] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"ed0672f"}
+[2019-12-04 15:34:37] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"a68db0a"}
+[2019-12-04 15:34:49] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"ad243c8"}
+[2019-12-04 15:35:36] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"15e74e7"}
+[2019-12-04 15:35:37] slim-app.NOTICE: View post: 22 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 22 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"700d405"}
+[2019-12-04 15:39:44] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"51bf93e"}
+[2019-12-04 15:39:45] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"7a1d836"}
+[2019-12-04 15:41:56] slim-app.NOTICE: View post: 22 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 22 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"68d946b"}
+[2019-12-04 15:42:16] slim-app.NOTICE: View post: 22 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 22 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"e9fd625"}
+[2019-12-04 15:45:22] slim-app.NOTICE: View post: 2 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 2 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"3cb11ca"}
+[2019-12-04 15:45:22] slim-app.NOTICE: View post: 1 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 1 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"ef2ab51"}
+[2019-12-04 15:45:39] slim-app.NOTICE: New comment: 1 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: insert into "my_users" ("name", "body", "date", "post_id") values (a, b, 2019-12-04 15:45:39, 1)) [] {"uid":"baf99f2"}
+[2019-12-04 15:45:39] slim-app.NOTICE: View post: 1 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 1 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"baf99f2"}
+[2019-12-04 15:45:45] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"596f353"}
+[2019-12-04 15:45:47] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"20bbff0"}
+[2019-12-04 15:50:55] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"5da68c9"}
+[2019-12-04 15:50:59] slim-app.NOTICE: View post: 22 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 22 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"06094e8"}
+[2019-12-04 15:51:01] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"36b311a"}
+[2019-12-04 15:51:03] slim-app.NOTICE: View post: 22 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 22 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"6a5b9cf"}
+[2019-12-04 15:51:10] slim-app.NOTICE: New comment | UNSUCCESSFUL | all fields required [] {"uid":"b4fde50"}
+[2019-12-04 15:51:10] slim-app.NOTICE: View post: 22 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such table: my_users (SQL: select * from "my_users" where "my_users"."post_id" = 22 and "my_users"."post_id" is not null order by "date" desc) [] {"uid":"b4fde50"}
+[2019-12-04 15:51:30] slim-app.NOTICE: New comment | UNSUCCESSFUL | all fields required [] {"uid":"dd6392c"}
+[2019-12-04 15:51:30] slim-app.INFO: View post: 22 | SUCCESSFUL [] {"uid":"dd6392c"}
+[2019-12-04 15:52:07] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"9483631"}
+[2019-12-04 15:52:09] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"1e8c7e9"}
+[2019-12-04 15:53:27] slim-app.NOTICE: New post | SUCCESSFUL | ["title: a"] [] {"uid":"7a4fc42"}
+[2019-12-04 15:53:27] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"8f2020a"}
+[2019-12-04 15:53:31] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e988cc0"}
+[2019-12-04 15:53:36] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"2ff8980"}
+[2019-12-04 15:53:39] slim-app.NOTICE: New post | SUCCESSFUL | ["title: a"] [] {"uid":"9bcd800"}
+[2019-12-04 15:53:39] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e26bea6"}
+[2019-12-04 15:54:29] slim-app.INFO: View post: 24 | SUCCESSFUL [] {"uid":"5f9614f"}
+[2019-12-04 15:54:31] slim-app.INFO: Edit post: 24 | VIEW | SUCCESSFUL [] {"uid":"b295225"}
+[2019-12-04 15:54:35] slim-app.NOTICE: Edit post: 24 | SUCCESSFUL | ["title: av2"] [] {"uid":"b2b8dbb"}
+[2019-12-04 15:54:35] slim-app.INFO: View post: 24 | SUCCESSFUL [] {"uid":"0d43a5e"}
+[2019-12-04 15:56:24] slim-app.INFO: Delete post: 24 | SUCCESSFUL [] {"uid":"864561f"}
+[2019-12-04 15:56:24] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"301248f"}
+[2019-12-04 15:56:33] slim-app.INFO: View post: 3 | SUCCESSFUL [] {"uid":"020d915"}
+[2019-12-04 15:56:39] slim-app.INFO: Delete post: 3 | SUCCESSFUL [] {"uid":"bcd3113"}
+[2019-12-04 15:56:40] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4235f92"}
+[2019-12-04 15:56:42] slim-app.INFO: View post: 23 | SUCCESSFUL [] {"uid":"c435991"}
+[2019-12-04 15:56:49] slim-app.INFO: Edit post: 23 | VIEW | SUCCESSFUL [] {"uid":"d7d523e"}
+[2019-12-04 15:56:51] slim-app.NOTICE: Edit post: 23 | SUCCESSFUL | ["title: av2"] [] {"uid":"6367587"}
+[2019-12-04 15:56:52] slim-app.INFO: View post: 23 | SUCCESSFUL [] {"uid":"88052ff"}
+[2019-12-04 15:56:56] slim-app.INFO: Delete post: 23 | SUCCESSFUL [] {"uid":"10cbce9"}
+[2019-12-04 15:56:56] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"8dbc59c"}
+[2019-12-04 15:56:59] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"3f0e3e9"}
+[2019-12-04 15:57:40] slim-app.INFO: View post: 22 | SUCCESSFUL [] {"uid":"4b4c7b9"}
+[2019-12-04 15:57:42] slim-app.INFO: Delete post: 22 | SUCCESSFUL [] {"uid":"949e45c"}
+[2019-12-04 15:57:42] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"fddc0e2"}
+[2019-12-04 15:57:59] slim-app.INFO: View post: 15 | SUCCESSFUL [] {"uid":"b7a4122"}
+[2019-12-04 15:58:02] slim-app.INFO: Delete post: 15 | SUCCESSFUL [] {"uid":"b4c97ca"}
+[2019-12-04 15:58:02] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"1ba613f"}
+[2019-12-04 16:00:39] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"fe5a7f7"}
+[2019-12-04 16:00:41] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"a3ad951"}
+[2019-12-04 16:01:59] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"2a738d1"}
+[2019-12-04 16:02:51] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"7b0134f"}
+[2019-12-04 16:06:17] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"41d45ee"}
+[2019-12-04 16:06:20] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"96e3f66"}
+[2019-12-04 16:10:00] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"c88b460"}
+[2019-12-04 16:10:06] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"4a7d6ef"}
+[2019-12-04 16:10:08] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"9f79392"}
+[2019-12-04 16:10:12] slim-app.NOTICE: New post | SUCCESSFUL | ["title: afsd"] [] {"uid":"36ff64e"}
+[2019-12-04 16:10:12] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"bd909b2"}
+[2019-12-04 16:10:16] slim-app.INFO: View post: 25 | SUCCESSFUL [] {"uid":"e63654d"}
+[2019-12-04 16:10:24] slim-app.NOTICE: New comment | SUCCESSFUL | ["id: 25","name: a"] [] {"uid":"131719e"}
+[2019-12-04 16:10:24] slim-app.INFO: View post: 25 | SUCCESSFUL [] {"uid":"1fc74c2"}
+[2019-12-04 16:10:29] slim-app.INFO: Edit post: 25 | VIEW | SUCCESSFUL [] {"uid":"242ffc4"}
+[2019-12-04 16:10:34] slim-app.NOTICE: Edit post: 25 | SUCCESSFUL | ["title: afsdv2"] [] {"uid":"e7ea3e2"}
+[2019-12-04 16:10:34] slim-app.INFO: View post: 25 | SUCCESSFUL [] {"uid":"223a7f6"}
+[2019-12-04 16:10:40] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"41ae8c3"}
+[2019-12-04 16:10:42] slim-app.INFO: View post: 25 | SUCCESSFUL [] {"uid":"4a03d97"}
+[2019-12-04 16:10:45] slim-app.INFO: Delete post: 25 | SUCCESSFUL [] {"uid":"3d7ddf6"}
+[2019-12-04 16:10:45] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e2f202b"}
+[2019-12-04 16:10:52] slim-app.INFO: View post: 14 | SUCCESSFUL [] {"uid":"f42e4ba"}
+[2019-12-04 16:10:53] slim-app.INFO: Edit post: 14 | VIEW | SUCCESSFUL [] {"uid":"628d0a6"}
+[2019-12-04 16:10:56] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"25b0b39"}
