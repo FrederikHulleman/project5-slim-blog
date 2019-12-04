@@ -302,3 +302,7 @@ input[type=submit] {
 .message.success {
 	background-color: #78CF82;
 }
+
+.message.notice {
+	background-color: grey;
+}

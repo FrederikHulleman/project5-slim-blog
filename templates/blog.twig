@@ -14,7 +14,7 @@
         {% for post in posts %}
             {{ include("post.twig") }}
         {%  else %}
-          No articles present
+          <p class="message notice">No posts yet</p>
         {% endfor %}
       </div>
     </div>

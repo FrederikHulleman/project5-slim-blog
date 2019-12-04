@@ -39,7 +39,7 @@
             {% for comment in comments %}
                 {{ include("comment.twig") }}
             {%  else %}
-              No comments
+              <p class="message notice">No comments yet</p>
             {% endfor %}
 
             {{ include("comment_form.twig") }}
