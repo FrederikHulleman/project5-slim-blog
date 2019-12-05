@@ -209,6 +209,7 @@ $app->map(['GET','POST'],'/post/{id}', function ($request, $response, $args) {
   try {
     $post = Post::find($id);
     $comments = Post::find($id)->comments()->orderBy('date','desc')->get();
+    var_dump($post->slug);
     $this->logger->info("View post: $id | SUCCESSFUL");
   } catch(\Exception $e){
       $_SESSION['message']['content'] = 'Something went wrong retrieving the post and/or comments. Try again later.';

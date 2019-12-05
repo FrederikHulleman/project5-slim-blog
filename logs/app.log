@@ -119,3 +119,10 @@
 [2019-12-05 09:28:49] slim-app.INFO: Delete post: 28 | SUCCESSFUL [] {"uid":"80b764a"}
 [2019-12-05 09:28:49] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"24e9ee1"}
 [2019-12-05 09:28:51] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"430aca2"}
+[2019-12-05 09:55:16] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"3d253d0"}
+[2019-12-05 09:56:35] slim-app.NOTICE: New post | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 5 database is locked (SQL: insert into "posts" ("title", "body", "date") values (test slug &#39;s bla #, test slug &#39;s bla #, 2019-12-05 09:55:35)) [] {"uid":"fcb24f7"}
+[2019-12-05 09:57:46] slim-app.NOTICE: New post | SUCCESSFUL | ["title: test slug &#39;s bla #"] [] {"uid":"0712a68"}
+[2019-12-05 09:57:46] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"062232b"}
+[2019-12-05 09:58:00] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"5a0184d"}
+[2019-12-05 09:58:01] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"d6418e5"}
+[2019-12-05 09:58:02] slim-app.INFO: View post: 29 | SUCCESSFUL [] {"uid":"f5464ee"}
