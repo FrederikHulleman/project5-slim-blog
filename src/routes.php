@@ -224,8 +224,7 @@ $app->map(['GET','POST'],'/post/{slug}', function ($request, $response, $args) {
   try {
     $post = Post::where('slug',$slug)->first();
     $comments = $post->comments()->orderBy('date','desc')->get();
-    //var_dump($post->title);
-    //var_dump(Post::slugify($post->title));
+    $tags = $post->tags()->get();
     $this->logger->info("View post: $id | SUCCESSFUL");
   } catch(\Exception $e){
       $_SESSION['message']['content'] = 'Something went wrong retrieving the post and/or comments. Try again later.';
@@ -255,6 +254,7 @@ $app->map(['GET','POST'],'/post/{slug}', function ($request, $response, $args) {
   return $this->view->render($response, 'detail.twig', [
    'post' => $post,
    'comments' => $comments,
+   'tags' => $tags, 
    'csrf_comment' => $csrf_comment,
    'csrf_delete' => $csrf_delete,
    'args' => $args,

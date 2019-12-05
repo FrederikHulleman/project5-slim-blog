@@ -9,11 +9,15 @@ class Post extends Model {
    //for exception handling testing purpose
    //protected $table = 'my_users';
    protected $fillable = ['title','body','date','slug'];
-   //private $slug;
 
    public function comments()
     {
         return $this->hasMany('Project5SlimBlog\Comment');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany('Project5SlimBlog\Tag');
     }
 
     public function delete()
@@ -31,8 +35,6 @@ class Post extends Model {
         if ($count > 0) {
           $slug = $slug . '-' . $this->attributes['id'];
         }
-        var_dump($count);
-        var_dump($slug);
 
         $this->attributes['slug'] = $slug;
     }
