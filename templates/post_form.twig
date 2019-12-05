@@ -2,7 +2,7 @@
 
 {%if args.id is not empty %}
   {% set label = 'Update entry' %}
-  {% set path = path_for('post-detail', { 'id': args.id }) %}
+  {% set path = path_for('post-detail', { 'slug': args.slug }) %}
 {% else %}
   {% set label = 'Publish new entry' %}
   {% set path = path_for('posts-list') %}

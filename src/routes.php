@@ -24,9 +24,15 @@ $app->map(['GET','POST'],'/new', function ($request, $response, $args) {
     $log = json_encode(["title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
       $args['date'] = date('Y-m-d H:i:s');
-
+      unset($args['csrf_name']);
+      unset($args['csrf_value']);
       try {
-        $post = Post::create($args);
+        //$args['slug'] = Post::slugify($args['title']);
+        $post = new Post($args);
+        $post->save();
+        $post->slug = $args['title'];
+        $post->save();
+
         $_SESSION['message']['content'] = 'Successfully added new Post "'.$args['title'].'"';
         $_SESSION['message']['type'] = 'success';
         $this->logger->notice("New post | SUCCESSFUL | $log");
@@ -78,17 +84,25 @@ $app->map(['GET','POST'],'/edit/{id}', function ($request, $response, $args) {
     $log = json_encode(["title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
       $args['date'] = date('Y-m-d H:i:s');
+      $args['slug'] = $args['title'];
       unset($args['id']);
       unset($args['csrf_name']);
       unset($args['csrf_value']);
 
       try {
-        $post = Post::where('id',$id)->update($args);
+        $post = Post::find($id);
+
+        foreach($args as $key=>$value) {
+          $post->$key = $value;
+        }
+        $post->save();
+        $slug =  $post->slug;
+
         $_SESSION['message']['content'] = 'Successfully updated Post "'.$args['title'].'"';
         $_SESSION['message']['type'] = 'success';
         $this->logger->notice("Edit post: $id | SUCCESSFUL | $log");
         //to avoid resubmitting values:
-        $url = $this->router->pathFor('post-detail',['id' => $id]);
+        $url = $this->router->pathFor('post-detail',['slug' => $slug]);
         return $response->withStatus(302)->withHeader('Location',$url);
       } catch(\Exception $e){
           $_SESSION['message']['content'] = 'Something went wrong updating the post. Try again later.';
@@ -146,6 +160,7 @@ $app->post('/delete', function ($request, $response, $args) {
       try {
         $post = Post::find($id);
         $title = $post->title;
+        $slug = $post->slug;
         $post = Post::find($id)->delete();
         $_SESSION['message']['content'] = 'Successfully deleted Post "'.$title.'"';
         $_SESSION['message']['type'] = 'success';
@@ -164,20 +179,20 @@ $app->post('/delete', function ($request, $response, $args) {
   }
   $_SESSION['message']['content'] = 'Something went wrong deleting the post. Try again later.';
   $_SESSION['message']['type'] = 'error';
-  $url = $this->router->pathFor('post-detail',['id' => $id]);
+  $url = $this->router->pathFor('post-detail',['slug' => $slug]);
   return $response->withStatus(302)->withHeader('Location',$url);
 })->setName('delete');
 
 /*-----------------------------------------------------------------------------------------------
 4. ROUTE FOR DISPLAY POST DETAILS, ITS COMMENTS AND MANAGE INSERT OF NEW COMMENTS
 -----------------------------------------------------------------------------------------------*/
-$app->map(['GET','POST'],'/post/{id}', function ($request, $response, $args) {
-  $id = (int)$args['id'];
-
+$app->map(['GET','POST'],'/post/{slug}', function ($request, $response, $args) {
+  $slug = (string)$args['slug'];
   //when a new comment was submitted:
   if($request->getMethod() == "POST") {
     $args = array_merge($args, $request->getParsedBody());
     $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+    $id = (int)$args['id'];
 
     $log = json_encode(["id: $id","name: ".$args['name']]);
     if(!empty($args['name']) && !empty($args['body'])) {
@@ -191,7 +206,7 @@ $app->map(['GET','POST'],'/post/{id}', function ($request, $response, $args) {
         $_SESSION['message']['type'] = 'success';
         $this->logger->notice("New comment | SUCCESSFUL | $log");
         //to avoid resubmitting values:
-        $url = $this->router->pathFor('post-detail',['id' => $id]);
+        $url = $this->router->pathFor('post-detail',['slug' => $slug]);
         return $response->withStatus(302)->withHeader('Location',$url);
       } catch(\Exception $e){
           $_SESSION['message']['content'] = 'Something went wrong adding the new comment. Try again later.';
@@ -207,9 +222,10 @@ $app->map(['GET','POST'],'/post/{id}', function ($request, $response, $args) {
   }
 
   try {
-    $post = Post::find($id);
+    $post = Post::where('slug',$slug)->first();
     $comments = Post::find($id)->comments()->orderBy('date','desc')->get();
-    var_dump($post->slug);
+    //var_dump($post->title);
+    //var_dump(Post::slugify($post->title));
     $this->logger->info("View post: $id | SUCCESSFUL");
   } catch(\Exception $e){
       $_SESSION['message']['content'] = 'Something went wrong retrieving the post and/or comments. Try again later.';

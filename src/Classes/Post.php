@@ -2,16 +2,13 @@
 
 namespace Project5SlimBlog;
 use Illuminate\Database\Eloquent\Model as Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model {
-
-   use Sluggable;
 
    public $timestamps = false;
    //for exception handling testing purpose
    //protected $table = 'my_users';
-   protected $fillable = ['title','body','date'];
+   protected $fillable = ['title','body','date','slug'];
    //private $slug;
 
    public function comments()
@@ -25,46 +22,49 @@ class Post extends Model {
       parent::delete();
     }
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
+    public function setSlugAttribute($value)
     {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
+        $slug = $this->slugify($value);
+
+        $count = $this->where('slug','like', $slug . '%')->where('id','<>',$this->attributes['id'])->count();
+
+        if ($count > 0) {
+          $slug = $slug . '-' . $this->attributes['id'];
+        }
+        var_dump($count);
+        var_dump($slug);
+
+        $this->attributes['slug'] = $slug;
     }
 
-    // public static function getTitleAttribute($value)
-    // {
-    //   // replace non letter or digits by -
-    //   $slug = preg_replace('~[^\pL\d]+~u', '-', $value);
-    //
-    //   // transliterate
-    //   $slug = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
-    //
-    //   // remove unwanted characters
-    //   $slug = preg_replace('~[^-\w]+~', '', $slug);
-    //
-    //   // trim
-    //   $slug = trim($slug, '-');
-    //
-    //   // remove duplicate -
-    //   $slug = preg_replace('~-+~', '-', $slug);
-    //
-    //   // lowercase
-    //   $slug = strtolower($slug);
-    //
-    //   if (empty($slug)) {
-    //     return 'n-a';
-    //   }
-    //
-    //   return $slug;
-    // }
+
+    public function slugify($text)
+    {
+
+      // replace non letter or digits by -
+      $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+      // transliterate
+      $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+      // remove unwanted characters
+      $text = preg_replace('~[^-\w]+~', '', $text);
+
+      // trim
+      $text = trim($text, '-');
+
+      // remove duplicate -
+      $text = preg_replace('~-+~', '-', $text);
+
+      // lowercase
+      $text = strtolower($text);
+
+      if (empty($text)) {
+        return 'n-a';
+      }
+
+      return $text;
+    }
 
 }
 
