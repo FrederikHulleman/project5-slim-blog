@@ -1,9 +1,9 @@
 <div class="new-comment">
     <form method="post">
           <label for="name"> Name</label>
-          <input type="text" name="name" value="{{ args.name }}"><br>
+          <input type="text" name="name" value="{{ args.name|raw }}"><br>
           <label for="comment">Comment</label>
-          <textarea rows="5" name="body">{{ args.body }}</textarea>
+          <textarea rows="5" name="body">{{ args.body|raw }}</textarea>
           <input type="hidden" name="id" value="{{ post.id }}">
           <input type="submit" value="Post Comment" class="button">
 

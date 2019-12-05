@@ -1,5 +1,5 @@
 <div class="comment">
-    <strong>{{ comment.name }}</strong>
+    <strong>{{ comment.name|raw }}</strong>
     <time datetime="{{ comment.date }}">{{ comment.date|date("F j, Y | H:i:s") }}</time>
-    {{ comment.body }}
+    {{ comment.body|raw|nl2br }}
 </div>

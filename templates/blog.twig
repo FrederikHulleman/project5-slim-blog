@@ -9,7 +9,7 @@
 
       <div class="entry-list">
       {% if message.content is not empty %}
-        <p class="message {{ message.type }}">{{ message.content }}</p>
+        <p class="message {{ message.type }}">{{ message.content|raw }}</p>
       {% endif %}
         {% for post in posts %}
             {{ include("post.twig") }}
