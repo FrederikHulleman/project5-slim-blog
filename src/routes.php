@@ -223,7 +223,7 @@ $app->map(['GET','POST'],'/post/{slug}', function ($request, $response, $args) {
 
   try {
     $post = Post::where('slug',$slug)->first();
-    $comments = Post::find($id)->comments()->orderBy('date','desc')->get();
+    $comments = $post->comments()->orderBy('date','desc')->get();
     //var_dump($post->title);
     //var_dump(Post::slugify($post->title));
     $this->logger->info("View post: $id | SUCCESSFUL");
