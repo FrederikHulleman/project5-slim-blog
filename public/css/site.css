@@ -314,3 +314,13 @@ input[type=submit] {
 	font-weight: normal;
 	text-transform: none;
 }
+
+.tag_name {
+	display: inline-block;
+	width: 20%;
+
+}
+
+#tag_name {
+	width: calc(20% - 32px);
+}

@@ -1,0 +1,18 @@
+{% if args.id is not empty %}
+  {% set path = path_for('edit-tag',{'id': args.id }) %}
+{% else %}
+  {% set path = path_for('new-tag') %}
+{% endif %}
+
+
+<form method="post" action="{{ path }}">
+  <label for="tag_name">New Tag:</label>
+  <input id="tag_name" type="text" name="name" value="#{{ args.name }}" />
+  {% if args.id is not empty %}
+    <input type="hidden" name="id" value="{{ args.id }}">
+  {% endif %}
+  &nbsp;<input type="submit" value="Add" class="button">
+  {% for key, value in csrf %}
+      <input type="hidden" name="{{ key }}" value="{{ value }}">
+  {% endfor %}
+</form>

@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block title %}Manage tags{% endblock %}
+
+{% block content %}
+  <section>
+    <div class="container">
+      <div class="edit-entry">
+        {% if message.content is not empty %}
+          <p class="message {{ message.type }}">{{ message.content|raw }}</p>
+        {% endif %}
+
+        {{ include("tag_form.twig") }}
+
+        {% if args.id is empty and tags is not empty %}
+          <p>Existing tags:</p>
+
+          {% for tag in tags %}
+              {{ include("tag.twig") }}
+          {%  else %}
+            <p class="message notice">No tags yet</p>
+          {% endfor %}
+        {% endif %}
+
+      </div>
+    </div>
+  </section>
+{% endblock %}

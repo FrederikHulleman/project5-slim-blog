@@ -19,6 +19,12 @@ class Tag extends Model {
         return $this->belongsToMany('Project5SlimBlog\Post')->orderBy('date','desc');
     }
 
+    public function delete()
+    {
+      $this->posts()->detach();
+      parent::delete();
+    }
+
 }
 
 

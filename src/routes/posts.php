@@ -58,7 +58,7 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
     }
   }
 
-  $full_tags_list = Tag::all();
+  $full_tags_list = Tag::orderBy('name','asc')->get();
 
   $nameKey = $this->csrf->getTokenNameKey();
   $valueKey = $this->csrf->getTokenValueKey();
@@ -78,7 +78,7 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
    'args' => $args,
    'message' => $message
   ]);
-})->setName('new');
+})->setName('new-post');
 
 /*-----------------------------------------------------------------------------------------------
 2. ROUTE FOR EDIT POST
@@ -104,7 +104,6 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
           }
         }
         $post->save();
-        $slug = $post->slug;
         $post->tags()->detach();
         $post->tags()->attach($args['tags']);
 
@@ -112,7 +111,7 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
         $_SESSION['message']['type'] = 'success';
         $this->logger->notice("Edit post: $id | SUCCESSFUL | $log");
         //to avoid resubmitting values:
-        $url = $this->router->pathFor('post-detail',['slug' => $slug]);
+        $url = $this->router->pathFor('post-detail',['slug' => $post->slug]);
         return $response->withStatus(302)->withHeader('Location',$url);
       } catch(\Exception $e){
           $_SESSION['message']['content'] = 'Something went wrong updating the post. Try again later.';
@@ -142,7 +141,7 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
     }
   }
 
-  $full_tags_list = Tag::all();
+  $full_tags_list = Tag::orderBy('name','asc')->get();
 
   $nameKey = $this->csrf->getTokenNameKey();
   $valueKey = $this->csrf->getTokenValueKey();
@@ -162,7 +161,7 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
    'args' => $args,
    'message' => $message
   ]);
-})->setName('edit');
+})->setName('edit-post');
 
 /*-----------------------------------------------------------------------------------------------
 3. ROUTE FOR DELETE POST
@@ -178,7 +177,6 @@ $app->post('/post/delete', function ($request, $response, $args) {
       $post = Post::find($id);
       $title = $post->title;
       $slug = $post->slug;
-      //$post->tags()->detach();
       $post = Post::find($id)->delete();
 
       $_SESSION['message']['content'] = 'Successfully deleted Post "'.$title.'"';
@@ -198,7 +196,7 @@ $app->post('/post/delete', function ($request, $response, $args) {
   $_SESSION['message']['type'] = 'error';
   $url = $this->router->pathFor('post-detail',['slug' => $slug]);
   return $response->withStatus(302)->withHeader('Location',$url);
-})->setName('delete');
+})->setName('delete-post');
 
 /*-----------------------------------------------------------------------------------------------
 4. ROUTE FOR DISPLAY POST DETAILS, ITS COMMENTS
