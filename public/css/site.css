@@ -155,7 +155,8 @@ a.link {
 }
 .edit-entry h2,
 .new-entry h2,
-.password h2 {
+.password h2,
+.entry-list h2 {
 	margin-bottom: 35px;
 }
 .entry-list article {
@@ -244,7 +245,8 @@ a.link {
 	padding: 50px 0;
 	margin-top: 2px;
 }
-form label {
+form label,
+form legend {
 	display: block;
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: bold;
@@ -305,4 +307,10 @@ input[type=submit] {
 
 .message.notice {
 	background-color: grey;
+}
+
+.check_label {
+	display: inline-block;
+	font-weight: normal;
+	text-transform: none;
 }

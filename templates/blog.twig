@@ -8,6 +8,9 @@
     <div class="container">
 
       <div class="entry-list">
+      {% if args.tag is not empty %}
+        <h2>#{{ args.tag }}</h2>
+      {% endif %}
       {% if message.content is not empty %}
         <p class="message {{ message.type }}">{{ message.content|raw }}</p>
       {% endif %}

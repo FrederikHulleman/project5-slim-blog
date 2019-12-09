@@ -25,6 +25,19 @@
                   <input type="text" name="title" value="{{ args.title|raw }}"><br>
                   <label for="entry">Entry</label>
                   <textarea rows="5" name="body">{{ args.body|raw }}</textarea>
+                  {% if tags is not empty %}
+                    <fieldset>
+                      <legend>Tags:</legend>
+                      {% for tag in tags %}
+                        {% if tag.id in args.tags %}
+                          <input type="checkbox" id="tag_{{ tag.id }}" name="tags[]" value="{{ tag.id }}" CHECKED />
+                        {% else %}
+                          <input type="checkbox" id="tag_{{ tag.id }}" name="tags[]" value="{{ tag.id }}" />
+                        {% endif %}
+                        <label class="check_label" for="tag_{{ tag.id }}">{{ tag.name }}</label><br>
+                      {% endfor %}
+                    </fieldset><br>
+                  {% endif %}
                   <input type="submit" value="{{ label }}" class="button">
 
 

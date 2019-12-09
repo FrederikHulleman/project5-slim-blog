@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block title %}Manage tags{% endblock %}
+
+{% block content %}
+<div class="edit-entry">
+<p>Existing tags:</p>
+{% foreach tag in tags %} foreach($tags as $tag) {
+    <form action="tags.php" method="post" onsubmit="return confirm('Are you sure you want to delete this tag?');">
+    <p class="tag_name">#".$tag['title']."</p>
+    <input type='hidden' value='". $tag['tag_id'] ."' name='delete'>
+    <a href="tags.php?edit=".$tag['tag_id']."" class="button">Edit</a>
+    &nbsp;<input type="submit" value="Delete" class="button">
+    </form>
+
+  }
+  <br><br><a href="index.php" class="button button-secondary">Cancel</a>
+  </div>
+</div>
+{% endblock %}

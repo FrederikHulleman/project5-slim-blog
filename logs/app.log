@@ -308,3 +308,200 @@
 [2019-12-05 20:08:19] slim-app.INFO: Edit post: 80 | VIEW | SUCCESSFUL [] {"uid":"96dbb0b"}
 [2019-12-05 20:08:22] slim-app.NOTICE: Edit post: 80 | SUCCESSFUL | ["title: test tags post"] [] {"uid":"e434934"}
 [2019-12-05 20:08:22] slim-app.INFO: View post:  | SUCCESSFUL [] {"uid":"248e4dd"}
+[2019-12-06 15:04:17] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"c78a7a7"}
+[2019-12-06 15:04:19] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"9c3d8b7"}
+[2019-12-06 15:29:04] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"f768e3e"}
+[2019-12-06 15:31:57] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"6232fb9"}
+[2019-12-06 15:31:59] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"8ee507b"}
+[2019-12-06 15:32:12] slim-app.NOTICE: New comment | SUCCESSFUL | ["id: 80","name: a"] [] {"uid":"dd3dd60"}
+[2019-12-06 15:32:12] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"f326132"}
+[2019-12-06 15:32:27] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"7fc30fa"}
+[2019-12-06 15:32:40] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"39433a6"}
+[2019-12-06 15:32:43] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"c0ce689"}
+[2019-12-06 15:35:25] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"aea6162"}
+[2019-12-06 15:36:01] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"2be5b06"}
+[2019-12-06 15:36:02] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"2d1fe8f"}
+[2019-12-06 15:36:04] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4b1102d"}
+[2019-12-06 15:36:15] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"db65254"}
+[2019-12-06 15:36:33] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6fdf515"}
+[2019-12-06 15:36:42] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"fb54596"}
+[2019-12-06 17:37:46] slim-app.INFO: View post: 82 | SUCCESSFUL [] {"uid":"d0d3393"}
+[2019-12-06 17:37:52] slim-app.INFO: View post: 82 | SUCCESSFUL [] {"uid":"1d352e6"}
+[2019-12-06 17:38:38] slim-app.INFO: View post: 82 | SUCCESSFUL [] {"uid":"30d5767"}
+[2019-12-06 17:38:40] slim-app.INFO: View post: 82 | SUCCESSFUL [] {"uid":"fdc38b5"}
+[2019-12-06 17:38:58] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e78d8e1"}
+[2019-12-06 17:38:59] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"c523e76"}
+[2019-12-06 17:39:06] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"29782b6"}
+[2019-12-06 17:39:07] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"1bda41a"}
+[2019-12-06 17:56:28] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"bcc6deb"}
+[2019-12-06 17:56:45] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"046a54c"}
+[2019-12-06 17:57:06] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4d841e2"}
+[2019-12-06 17:57:28] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"2bf13ed"}
+[2019-12-06 18:05:41] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"febd69b"}
+[2019-12-06 18:05:49] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"6072242"}
+[2019-12-06 18:05:51] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"21866a6"}
+[2019-12-06 18:05:52] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"1dd7859"}
+[2019-12-06 18:06:06] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"07faaac"}
+[2019-12-06 18:06:08] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"79bf08d"}
+[2019-12-06 18:06:10] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"3d3c2ec"}
+[2019-12-06 18:08:25] slim-app.INFO: View posts list with tag [{"id":2,"name":"Politics"}] | SUCCESSFUL [] {"uid":"f47aa1d"}
+[2019-12-06 18:09:16] slim-app.NOTICE: View posts list | UNSUCCESSFUL | Method posts does not exist. [] {"uid":"9f6c99e"}
+[2019-12-06 18:11:01] slim-app.NOTICE: View posts list | UNSUCCESSFUL | Method posts does not exist. [] {"uid":"b2fbc50"}
+[2019-12-06 18:12:40] slim-app.NOTICE: View posts list | UNSUCCESSFUL | Method posts does not exist. [] {"uid":"d68a5fc"}
+[2019-12-06 18:13:12] slim-app.INFO: View posts list with tag [{"id":2,"name":"Politics"}] | SUCCESSFUL [] {"uid":"39106e7"}
+[2019-12-06 18:13:48] slim-app.INFO: View posts list with tag {"id":1,"name":"Religion","posts":[{"id":80,"title":"test tags post","date":"2019-12-05 20:08:22","body":"afsfasd","slug":"test-tags-post","pivot":{"tag_id":"1","post_id":"80"}}]} | SUCCESSFUL [] {"uid":"f8a95e3"}
+[2019-12-06 18:14:30] slim-app.INFO: View posts list with tag {"id":2,"name":"Politics","posts":[{"id":80,"title":"test tags post","date":"2019-12-05 20:08:22","body":"afsfasd","slug":"test-tags-post","pivot":{"tag_id":"2","post_id":"80"}}]} | SUCCESSFUL [] {"uid":"16b67c6"}
+[2019-12-06 18:15:15] slim-app.INFO: View posts list with tag Politics | SUCCESSFUL [] {"uid":"6c551fb"}
+[2019-12-06 18:15:38] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"b2b6037"}
+[2019-12-06 18:18:20] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"c79f1aa"}
+[2019-12-06 18:18:22] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"91fbe58"}
+[2019-12-06 18:18:24] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"84a9ae8"}
+[2019-12-06 18:18:26] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"05176dd"}
+[2019-12-06 18:18:28] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"e532fba"}
+[2019-12-06 18:19:54] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"8809784"}
+[2019-12-06 18:19:55] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"db944f6"}
+[2019-12-06 18:19:59] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"9510cc5"}
+[2019-12-06 18:20:02] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"525e85c"}
+[2019-12-06 18:20:04] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"090b5c3"}
+[2019-12-06 18:21:37] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"fae7e02"}
+[2019-12-06 18:21:38] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"66091ee"}
+[2019-12-06 18:21:41] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"d4bb9df"}
+[2019-12-06 18:21:43] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"28bffac"}
+[2019-12-06 18:21:47] slim-app.INFO: View post: 82 | SUCCESSFUL [] {"uid":"fca36ec"}
+[2019-12-06 18:22:12] slim-app.INFO: View posts list with tag "" | SUCCESSFUL [] {"uid":"ca01fd2"}
+[2019-12-06 18:32:42] slim-app.INFO: View posts list with tag "" | SUCCESSFUL [] {"uid":"23b3508"}
+[2019-12-06 18:49:18] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"124c50f"}
+[2019-12-06 18:49:26] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"2341c58"}
+[2019-12-06 18:51:48] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"fb60f70"}
+[2019-12-06 18:51:49] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"4ea7480"}
+[2019-12-06 18:51:51] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"61b1fe9"}
+[2019-12-06 18:52:05] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"40a4bba"}
+[2019-12-06 19:07:55] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"c2bfef3"}
+[2019-12-06 19:08:08] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"9782d13"}
+[2019-12-06 19:11:09] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"f5bb036"}
+[2019-12-06 19:11:15] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"b831e47"}
+[2019-12-06 19:11:20] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"49c4c22"}
+[2019-12-06 19:11:22] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"f13fc3e"}
+[2019-12-06 19:12:47] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"35da723"}
+[2019-12-06 19:12:56] slim-app.NOTICE: New post | UNSUCCESSFUL | all fields required [] {"uid":"b886753"}
+[2019-12-06 19:19:18] slim-app.NOTICE: New post | SUCCESSFUL | ["title: tst tags"] [] {"uid":"8e33634"}
+[2019-12-06 19:19:19] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"3902971"}
+[2019-12-06 19:19:27] slim-app.INFO: View post: 85 | SUCCESSFUL [] {"uid":"e827e42"}
+[2019-12-06 19:20:17] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"7e452a9"}
+[2019-12-06 19:20:40] slim-app.INFO: View post: 85 | SUCCESSFUL [] {"uid":"760a06f"}
+[2019-12-06 19:21:02] slim-app.INFO: View post: 85 | SUCCESSFUL [] {"uid":"209d3cf"}
+[2019-12-06 19:21:06] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"7ecb96c"}
+[2019-12-06 19:21:43] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"7be9ba8"}
+[2019-12-06 19:22:48] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"ad44098"}
+[2019-12-06 19:23:27] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"56e4f4c"}
+[2019-12-06 19:24:37] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"3b11389"}
+[2019-12-06 19:25:00] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"1e2bf68"}
+[2019-12-06 19:26:15] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"7fbf998"}
+[2019-12-06 19:26:23] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"466bb28"}
+[2019-12-06 19:27:13] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"b62cd5e"}
+[2019-12-06 19:28:29] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"3c4d72f"}
+[2019-12-06 19:29:20] slim-app.NOTICE: Edit post: 85 | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 no such column: tags (SQL: update "posts" set "date" = 2019-12-06 19:29:20, "tags" = 1 where "id" = 85) [] {"uid":"ebceeb1"}
+[2019-12-06 19:34:45] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"7486bf4"}
+[2019-12-06 19:34:50] slim-app.NOTICE: Edit post: 85 | SUCCESSFUL | ["title: tst tags"] [] {"uid":"07b9988"}
+[2019-12-06 19:34:50] slim-app.INFO: View post: 85 | SUCCESSFUL [] {"uid":"c5f097e"}
+[2019-12-06 19:34:52] slim-app.INFO: Edit post: 85 | VIEW | SUCCESSFUL [] {"uid":"879eb36"}
+[2019-12-06 19:34:56] slim-app.NOTICE: Edit post: 85 | SUCCESSFUL | ["title: tst tags2"] [] {"uid":"da1f669"}
+[2019-12-06 19:34:56] slim-app.INFO: View post: 85 | SUCCESSFUL [] {"uid":"f7cd955"}
+[2019-12-06 19:35:31] slim-app.NOTICE: New post | SUCCESSFUL | ["title: asfd"] [] {"uid":"71d6342"}
+[2019-12-06 19:35:31] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"d6eb233"}
+[2019-12-06 19:35:33] slim-app.INFO: View post: 86 | SUCCESSFUL [] {"uid":"6397b10"}
+[2019-12-06 19:35:35] slim-app.INFO: Edit post: 86 | VIEW | SUCCESSFUL [] {"uid":"6061767"}
+[2019-12-06 19:35:39] slim-app.NOTICE: Edit post: 86 | SUCCESSFUL | ["title: vasfdv2"] [] {"uid":"ab5b268"}
+[2019-12-06 19:35:39] slim-app.INFO: View post: 86 | SUCCESSFUL [] {"uid":"cb1e32b"}
+[2019-12-06 19:35:51] slim-app.INFO: Edit post: 86 | VIEW | SUCCESSFUL [] {"uid":"442e73b"}
+[2019-12-06 19:35:53] slim-app.NOTICE: Edit post: 86 | SUCCESSFUL | ["title: vasfdv2"] [] {"uid":"b329870"}
+[2019-12-06 19:35:53] slim-app.INFO: View post: 86 | SUCCESSFUL [] {"uid":"afdea01"}
+[2019-12-06 19:35:57] slim-app.INFO: Edit post: 86 | VIEW | SUCCESSFUL [] {"uid":"75eb3ed"}
+[2019-12-06 19:35:59] slim-app.NOTICE: Edit post: 86 | SUCCESSFUL | ["title: vasfdv2"] [] {"uid":"46b9076"}
+[2019-12-06 19:35:59] slim-app.INFO: View post: 86 | SUCCESSFUL [] {"uid":"3be10eb"}
+[2019-12-06 19:36:01] slim-app.INFO: Edit post: 86 | VIEW | SUCCESSFUL [] {"uid":"7966a10"}
+[2019-12-06 19:36:03] slim-app.NOTICE: Edit post: 86 | SUCCESSFUL | ["title: vasfdv2"] [] {"uid":"6f50aec"}
+[2019-12-06 19:36:03] slim-app.INFO: View post: 86 | SUCCESSFUL [] {"uid":"9c48ec9"}
+[2019-12-06 19:36:05] slim-app.INFO: Edit post: 86 | VIEW | SUCCESSFUL [] {"uid":"27bf85c"}
+[2019-12-06 19:36:07] slim-app.NOTICE: Edit post: 86 | SUCCESSFUL | ["title: vasfdv2"] [] {"uid":"03371d3"}
+[2019-12-06 19:36:07] slim-app.INFO: View post: 86 | SUCCESSFUL [] {"uid":"e9fc80d"}
+[2019-12-06 19:38:43] slim-app.INFO: Delete post: 86 | SUCCESSFUL [] {"uid":"4b594c8"}
+[2019-12-06 19:38:43] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e9fe347"}
+[2019-12-06 19:40:35] slim-app.INFO: View post: 85 | SUCCESSFUL [] {"uid":"a144339"}
+[2019-12-06 19:40:38] slim-app.INFO: Delete post: 85 | SUCCESSFUL [] {"uid":"d7a6261"}
+[2019-12-06 19:40:38] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4607433"}
+[2019-12-06 19:40:58] slim-app.INFO: View post: 81 | SUCCESSFUL [] {"uid":"9a623e7"}
+[2019-12-06 19:41:00] slim-app.INFO: Delete post: 81 | SUCCESSFUL [] {"uid":"68e523f"}
+[2019-12-06 19:41:00] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"0deb6bd"}
+[2019-12-06 19:41:01] slim-app.INFO: View post: 80 | SUCCESSFUL [] {"uid":"421dc1e"}
+[2019-12-06 19:41:03] slim-app.INFO: Delete post: 80 | SUCCESSFUL [] {"uid":"add8583"}
+[2019-12-06 19:41:03] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"57cbf39"}
+[2019-12-06 19:41:04] slim-app.INFO: View post: 82 | SUCCESSFUL [] {"uid":"3011b33"}
+[2019-12-06 19:41:06] slim-app.INFO: Delete post: 82 | SUCCESSFUL [] {"uid":"68e545f"}
+[2019-12-06 19:41:06] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e66b809"}
+[2019-12-06 19:41:08] slim-app.INFO: View post: 84 | SUCCESSFUL [] {"uid":"16e9e2f"}
+[2019-12-06 19:41:11] slim-app.NOTICE: New comment | SUCCESSFUL | ["id: 84","name: asdf"] [] {"uid":"98a2f5f"}
+[2019-12-06 19:41:11] slim-app.INFO: View post: 84 | SUCCESSFUL [] {"uid":"e27b15f"}
+[2019-12-06 19:41:14] slim-app.INFO: Edit post: 84 | VIEW | SUCCESSFUL [] {"uid":"6b434d0"}
+[2019-12-06 19:41:17] slim-app.NOTICE: Edit post: 84 | SUCCESSFUL | ["title: 2"] [] {"uid":"460fdeb"}
+[2019-12-06 19:41:17] slim-app.INFO: View post: 84 | SUCCESSFUL [] {"uid":"4879d76"}
+[2019-12-06 19:41:38] slim-app.INFO: Delete post: 84 | SUCCESSFUL [] {"uid":"e67c31e"}
+[2019-12-06 19:41:39] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"b342609"}
+[2019-12-06 19:41:40] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"863e479"}
+[2019-12-07 13:33:00] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"015654c"}
+[2019-12-07 13:42:34] slim-app.NOTICE: New post | SUCCESSFUL | ["title: a"] [] {"uid":"71f09aa"}
+[2019-12-07 13:42:34] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"84331e2"}
+[2019-12-07 13:42:48] slim-app.NOTICE: New post | SUCCESSFUL | ["title: Babynest Mamaloes - zo goed als nieuw bc"] [] {"uid":"47ea26c"}
+[2019-12-07 13:43:29] slim-app.NOTICE: New post | SUCCESSFUL | ["title: Babynest Mamaloes - zo goed als nieuw bc"] [] {"uid":"3c7d77b"}
+[2019-12-07 13:43:36] slim-app.NOTICE: New post | SUCCESSFUL | ["title: b"] [] {"uid":"192b7c8"}
+[2019-12-07 13:43:58] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6df741f"}
+[2019-12-07 13:44:05] slim-app.NOTICE: New post | SUCCESSFUL | ["title: c"] [] {"uid":"40157fe"}
+[2019-12-07 13:44:13] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"9d4ca50"}
+[2019-12-07 13:44:27] slim-app.INFO: View post: 91 | SUCCESSFUL [] {"uid":"1cd70eb"}
+[2019-12-07 13:45:25] slim-app.NOTICE: New post | SUCCESSFUL | ["title: d"] [] {"uid":"9a47926"}
+[2019-12-07 13:45:27] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"10a0a3d"}
+[2019-12-07 13:45:34] slim-app.NOTICE: New post | SUCCESSFUL | ["title: e"] [] {"uid":"9d9c804"}
+[2019-12-07 13:46:24] slim-app.NOTICE: New post | SUCCESSFUL | ["title: 11"] [] {"uid":"db87a27"}
+[2019-12-07 13:48:18] slim-app.NOTICE: New post | SUCCESSFUL | ["title: 999"] [] {"uid":"dce2b4a"}
+[2019-12-07 13:49:13] slim-app.NOTICE: New post | SUCCESSFUL | ["title: 9991"] [] {"uid":"299aaba"}
+[2019-12-07 13:51:47] slim-app.NOTICE: New post | SUCCESSFUL | ["title: 99912"] [] {"uid":"afda3f0"}
+[2019-12-07 13:55:36] slim-app.NOTICE: New post | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 near ")": syntax error (SQL: insert into "posts" () values ()) [] {"uid":"5a1188a"}
+[2019-12-07 13:56:18] slim-app.NOTICE: New post | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 1 near ")": syntax error (SQL: insert into "posts" () values ()) [] {"uid":"c3adb56"}
+[2019-12-07 13:57:42] slim-app.NOTICE: New post | UNSUCCESSFUL | SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: posts.title (SQL: insert into "posts" ("slug") values (99912345)) [] {"uid":"c712165"}
+[2019-12-07 13:59:05] slim-app.NOTICE: New post | UNSUCCESSFUL | SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: post_tag.post_id (SQL: insert into "post_tag" ("post_id", "tag_id") select  as "post_id", 1 as "tag_id" union all select  as "post_id", 2 as "tag_id") [] {"uid":"c2d9b6d"}
+[2019-12-07 14:00:40] slim-app.NOTICE: New post | SUCCESSFUL | ["title: 9991234567"] [] {"uid":"153a708"}
+[2019-12-07 14:01:04] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"a5393e6"}
+[2019-12-07 14:01:05] slim-app.INFO: View post: 98 | SUCCESSFUL [] {"uid":"94ef87d"}
+[2019-12-07 14:02:23] slim-app.NOTICE: New post | SUCCESSFUL | ["title: 9991234567"] [] {"uid":"143d1fc"}
+[2019-12-07 14:02:25] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"efdf35d"}
+[2019-12-07 14:03:08] slim-app.INFO: View post: 98 | SUCCESSFUL [] {"uid":"ad336ed"}
+[2019-12-07 14:03:10] slim-app.INFO: Edit post: 98 | VIEW | SUCCESSFUL [] {"uid":"a11fd55"}
+[2019-12-07 14:03:14] slim-app.NOTICE: Edit post: 98 | SUCCESSFUL | ["title: 9991234567"] [] {"uid":"02e6cad"}
+[2019-12-07 14:03:14] slim-app.INFO: View post: 98 | SUCCESSFUL [] {"uid":"edf21e4"}
+[2019-12-07 14:03:16] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4923e63"}
+[2019-12-09 09:04:18] slim-app.INFO: View posts list with tag "" | SUCCESSFUL [] {"uid":"c6ce790"}
+[2019-12-09 09:10:13] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6f63ee1"}
+[2019-12-09 09:10:19] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"42f3887"}
+[2019-12-09 09:10:19] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"06253e2"}
+[2019-12-09 09:11:23] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"302170c"}
+[2019-12-09 09:12:05] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"b2732af"}
+[2019-12-09 09:12:11] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"03535c6"}
+[2019-12-09 09:12:12] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"e69d37a"}
+[2019-12-09 09:15:24] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"40f4d23"}
+[2019-12-09 09:15:32] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"7d04d31"}
+[2019-12-09 09:15:37] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"c94ed79"}
+[2019-12-09 09:15:40] slim-app.INFO: View posts list with tag "Religion" | SUCCESSFUL [] {"uid":"3873cdb"}
+[2019-12-09 09:15:41] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"942f8b1"}
+[2019-12-09 09:15:49] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"331bc69"}
+[2019-12-09 09:16:04] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6b51e47"}
+[2019-12-09 09:16:15] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4345b95"}
+[2019-12-09 09:16:15] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"26e8ab1"}
+[2019-12-09 09:16:36] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"6800051"}
+[2019-12-09 09:16:55] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"60649f5"}
+[2019-12-09 09:16:55] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"5303ce6"}
+[2019-12-09 09:18:16] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"db4e956"}
+[2019-12-09 09:18:17] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"ee279b6"}
+[2019-12-09 09:18:34] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"333131a"}
+[2019-12-09 09:19:27] slim-app.INFO: View post: 98 | SUCCESSFUL [] {"uid":"2f6cfe8"}
+[2019-12-09 09:20:09] slim-app.INFO: View post: 98 | SUCCESSFUL [] {"uid":"cb9e479"}
+[2019-12-09 09:20:13] slim-app.INFO: View post: 98 | SUCCESSFUL [] {"uid":"4533855"}

@@ -9,6 +9,14 @@ class Tag extends Model {
    //for exception handling testing purposes
    //protected $table = 'my_users';
    protected $fillable = ['title'];
+
+   /**
+     * The posts that belong to the tag.
+     */
+    public function posts()
+    {
+        return $this->belongsToMany('Project5SlimBlog\Post');
+    }
 }
 
 
