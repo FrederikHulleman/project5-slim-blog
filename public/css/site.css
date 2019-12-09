@@ -32,7 +32,8 @@ header .logo {
 	text-transform: uppercase;
 	font-family: 'Noto Sans', sans-serif;
 }
-header .new-entry {
+header .new-entry,
+header .manage-tags {
 	float: right;
 	margin: 25px 0 0 0;
 }
@@ -100,6 +101,22 @@ footer a {
 	outline: 0;
 }
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 
 
 /* ==========================================================================
@@ -147,6 +164,7 @@ a.link {
 
 .entry-list,
 .edit-entry,
+.tag-entry,
 .new-entry,
 .password {
 	max-width: 700px;
@@ -154,6 +172,7 @@ a.link {
 	padding: 90px 0 100px 0;
 }
 .edit-entry h2,
+.tag-entry h2,
 .new-entry h2,
 .password h2,
 .entry-list h2 {
@@ -200,6 +219,7 @@ a.link {
 }
 .entry-comments .container,
 .edit-entry .container,
+.tag-entry .container,
 .new-entry .container {
 	max-width: 700px;
 	margin: 0 auto;
@@ -246,7 +266,7 @@ a.link {
 	margin-top: 2px;
 }
 form label,
-form legend {
+legend {
 	display: block;
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: bold;
@@ -315,12 +335,39 @@ input[type=submit] {
 	text-transform: none;
 }
 
-.tag_name {
+.tag-entry form p {
 	display: inline-block;
 	width: 20%;
-
 }
 
-#tag_name {
+.tag-entry input[type=text]  {
 	width: calc(20% - 32px);
+	margin-bottom: auto;
+}
+
+.tag-entry fieldset {
+	margin-bottom: 30px;
+}
+
+.tags a {
+	margin: 0 5px;
+}
+
+.manage-tags {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	border-radius: 50%;
+	height: 48px;
+  width: 48px;
+	text-align: center;
+}
+
+.manage-tags p {
+  display: inline-block;
+  vertical-align: middle;
+	text-decoration: bold;
+	font-size: 1.6rem;
+	margin: auto;
+
 }

@@ -5,15 +5,16 @@
 {% block content %}
   <section>
     <div class="container">
-      <div class="edit-entry">
+      <div class="tag-entry">
+        <h2>Manage tags</h2>
         {% if message.content is not empty %}
           <p class="message {{ message.type }}">{{ message.content|raw }}</p>
         {% endif %}
 
         {{ include("tag_form.twig") }}
-
         {% if args.id is empty and tags is not empty %}
-          <p>Existing tags:</p>
+        <fieldset>
+          <legend>Existing tags:</legend>
 
           {% for tag in tags %}
               {{ include("tag.twig") }}
@@ -21,6 +22,7 @@
             <p class="message notice">No tags yet</p>
           {% endfor %}
         {% endif %}
+        </fieldset>
 
       </div>
     </div>
