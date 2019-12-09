@@ -10,19 +10,20 @@ class Post extends Model {
    //protected $table = 'my_users';
    protected $fillable = ['title','body','date','slug'];
 
-   public function comments()
+    public function comments()
     {
-        return $this->hasMany('Project5SlimBlog\Comment');
+        return $this->hasMany('Project5SlimBlog\Comment')->orderBy('date','desc');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('Project5SlimBlog\Tag');
+        return $this->belongsToMany('Project5SlimBlog\Tag')->orderBy('name','asc');
     }
 
     public function delete()
     {
       $this->comments()->delete();
+      $this->tags()->detach();
       parent::delete();
     }
 
@@ -32,7 +33,7 @@ class Post extends Model {
 
         $count = $this->where('slug','like', $slug . '%')->where('id','<>',$this->attributes['id'])->count();
 
-        if ($count > 0) {
+        if(!empty($count) && $count > 0) {
           $slug = $slug . '-' . $this->attributes['id'];
         }
 

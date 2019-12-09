@@ -8,15 +8,17 @@ class Tag extends Model {
    public $timestamps = false;
    //for exception handling testing purposes
    //protected $table = 'my_users';
-   protected $fillable = ['title'];
+   protected $fillable = ['name'];
 
-   /**
+
+    /**
      * The posts that belong to the tag.
      */
     public function posts()
     {
-        return $this->belongsToMany('Project5SlimBlog\Post');
+        return $this->belongsToMany('Project5SlimBlog\Post')->orderBy('date','desc');
     }
+
 }
 
 

@@ -8,7 +8,7 @@ Available routes:
   1. new post
   2. edit posts
   3. delete post
-  4. show post details & its comments. And also handle the insert of new comments
+  4. show post details & its comments
   5. show full post list, optionally filtered by tag
 -----------------------------------------------------------------------------------------------*/
 
@@ -24,11 +24,11 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
     $log = json_encode(["title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
       $args['date'] = date('Y-m-d H:i:s');
-      $args['slug'] = $args['title'];
 
       try {
         $post = new Post();
         $post_args = array_intersect_key($args,array_flip($post->getFillable()));
+
         foreach($post_args as $key=>$value) {
           $post->$key = $value;
         }
@@ -44,7 +44,7 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
         $this->logger->notice("New post | SUCCESSFUL | $log");
         //to avoid resubmitting values:
         $url = $this->router->pathFor('posts-list');
-        //return $response->withStatus(302)->withHeader('Location',$url);
+        return $response->withStatus(302)->withHeader('Location',$url);
       } catch(\Exception $e){
           $_SESSION['message']['content'] = 'Something went wrong adding the new post. Try again later.';
           $_SESSION['message']['type'] = 'error';
@@ -168,34 +168,32 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
 3. ROUTE FOR DELETE POST
 -----------------------------------------------------------------------------------------------*/
 $app->post('/post/delete', function ($request, $response, $args) {
-  if($request->getMethod() == "POST") {
-    $args = $request->getParsedBody();
-    $args = filter_var_array($args,FILTER_SANITIZE_NUMBER_INT);
-    $id = (int)$args['delete'];
 
-    if (!empty($id)) {
-      try {
-        $post = Post::find($id);
-        $title = $post->title;
-        $slug = $post->slug;
-        $post->tags()->detach();
-        $post = Post::find($id)->delete();
+  $args = $request->getParsedBody();
+  $args = filter_var_array($args,FILTER_SANITIZE_NUMBER_INT);
+  $id = (int)$args['delete'];
 
-        $_SESSION['message']['content'] = 'Successfully deleted Post "'.$title.'"';
-        $_SESSION['message']['type'] = 'success';
-        $this->logger->info("Delete post: $id | SUCCESSFUL");
-        //to avoid resubmitting values:
-        $url = $this->router->pathFor('posts-list');
-        return $response->withStatus(302)->withHeader('Location',$url);
-      } catch(\Exception $e){
-         $this->logger->notice("Delete post: $id | UNSUCCESSFUL | " . $e->getMessage());
-      }
-    } else {
-      $this->logger->notice("Delete post: $id | UNSUCCESSFUL | No valid ID");
+  if (!empty($id)) {
+    try {
+      $post = Post::find($id);
+      $title = $post->title;
+      $slug = $post->slug;
+      //$post->tags()->detach();
+      $post = Post::find($id)->delete();
+
+      $_SESSION['message']['content'] = 'Successfully deleted Post "'.$title.'"';
+      $_SESSION['message']['type'] = 'success';
+      $this->logger->info("Delete post: $id | SUCCESSFUL");
+      //to avoid resubmitting values:
+      $url = $this->router->pathFor('posts-list');
+      return $response->withStatus(302)->withHeader('Location',$url);
+    } catch(\Exception $e){
+       $this->logger->notice("Delete post: $id | UNSUCCESSFUL | " . $e->getMessage());
     }
   } else {
-    $this->logger->notice("Delete post: $id | UNSUCCESSFUL | Delete post only allowed via Post Method");
+    $this->logger->notice("Delete post: $id | UNSUCCESSFUL | No valid ID");
   }
+
   $_SESSION['message']['content'] = 'Something went wrong deleting the post. Try again later.';
   $_SESSION['message']['type'] = 'error';
   $url = $this->router->pathFor('post-detail',['slug' => $slug]);
@@ -203,42 +201,20 @@ $app->post('/post/delete', function ($request, $response, $args) {
 })->setName('delete');
 
 /*-----------------------------------------------------------------------------------------------
-4. ROUTE FOR DISPLAY POST DETAILS, ITS COMMENTS AND MANAGE INSERT OF NEW COMMENTS
+4. ROUTE FOR DISPLAY POST DETAILS, ITS COMMENTS
 -----------------------------------------------------------------------------------------------*/
 $app->get('/post/{slug}', function ($request, $response, $args) {
   $slug = (string)$args['slug'];
-  //when a new comment was submitted:
-  // if($request->getMethod() == "POST") {
-  //   $args = array_merge($args, $request->getParsedBody());
-  //   $args = filter_var_array($args,FILTER_SANITIZE_STRING);
-  //   $id = (int)$args['id'];
-  //
-  //   $log = json_encode(["id: $id","name: ".$args['name']]);
-  //   if(!empty($args['name']) && !empty($args['body'])) {
-  //     $args['date'] = date('Y-m-d H:i:s');
-  //
-  //     try {
-  //       $comment = new Comment($args);
-  //       $post = Post::find($id);
-  //       $post->comments()->save($comment);
-  //       $_SESSION['message']['content'] = 'Successfully added comment';
-  //       $_SESSION['message']['type'] = 'success';
-  //       $this->logger->notice("New comment | SUCCESSFUL | $log");
-  //       //to avoid resubmitting values:
-  //       $url = $this->router->pathFor('post-detail',['slug' => $slug]);
-  //       return $response->withStatus(302)->withHeader('Location',$url);
-  //     } catch(\Exception $e){
-  //         $_SESSION['message']['content'] = 'Something went wrong adding the new comment. Try again later.';
-  //         $_SESSION['message']['type'] = 'error';
-  //         $this->logger->notice("New comment: $id | UNSUCCESSFUL | " . $e->getMessage());
-  //     }
-  //   }
-  //   else {
-  //     $_SESSION['message']['content'] = "All fields are required.";
-  //     $_SESSION['message']['type'] = 'error';
-  //     $this->logger->notice("New comment | UNSUCCESSFUL | all fields required");
-  //   }
-  // }
+
+  //in case not all comment fields were submitted:
+  if(!empty($_SESSION['comment']['name'])) {
+    $args['name'] = $_SESSION['comment']['name'];
+    unset($_SESSION['comment']['name']);
+  }
+  if(!empty($_SESSION['comment']['body'])) {
+    $args['body'] = $_SESSION['comment']['body'];
+    unset($_SESSION['comment']['body']);
+  }
 
   try {
     $post = Post::where('slug',$slug)->first();
@@ -284,7 +260,7 @@ $app->get('/[posts[/{tag}]]', function ($request, $response, $args) {
     try {
       if(!empty($args['tag'])) {
         $tag = $args['tag'];
-        $tag = Tag::where('name',$tag)->orderBy('date','desc')->first();
+        $tag = Tag::where('name',$tag)->first();
         $posts = $tag->posts;
         $this->logger->info("View posts list with tag \"$tag->name\" | SUCCESSFUL");
       } else {

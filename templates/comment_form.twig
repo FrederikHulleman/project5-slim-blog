@@ -1,5 +1,5 @@
 <div class="new-comment">
-    <form method="post">
+    <form method="post" action="{{ path_for('new-comment',{ 'slug': post.slug }) }}">
           <label for="name"> Name</label>
           <input type="text" name="name" value="{{ args.name|raw }}"><br>
           <label for="comment">Comment</label>
