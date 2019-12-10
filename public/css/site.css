@@ -6,31 +6,34 @@
 body {
 	background: url(../../concepts/JavaTechdegree_SparkBlog_1.jg) top center no-repeat;
 	font-size: 15px;
-	color: #000;
+	color: #999;
 	font-family: 'Noto Serif', Georgia, serif;
 	background: #444;
 }
 .container {
 	margin: 0 auto;
 	padding: 0 25px;
-	background: #FFF;
+	background: #96b0bc;
+	color: #444;
 }
 header .site-header {
-	border-bottom: 1px solid #d1d1d1;
+	border-bottom: 2px solid #444;
 	margin: 0 auto;
 	height: 95px;
 }
 header .logo {
-	border: 5px solid #000;
+	border: 5px solid #444;
 	text-decoration: none;
-	color: #000;
+	color: #FFF;
 	font-size: 21px;
-	font-weight: bold;
+	/* font-weight: bold; */
 	padding: 5px 10px;
 	margin: 24px 0 0 0;
 	float: left;
 	text-transform: uppercase;
 	font-family: 'Noto Sans', sans-serif;
+	background: #444;
+	border-radius: 15px;
 }
 header .new-entry,
 header .manage-tags {
@@ -51,6 +54,14 @@ footer a {
 	padding-bottom: 1px;
 }
 
+/* .container a {
+	color: #FFF;
+} */
+
+header a {
+	color: #444;
+}
+
 
 
 /* ==========================================================================
@@ -60,37 +71,19 @@ footer a {
 .button {
 	padding: 8px 12px 7px 12px;
 	text-transform: uppercase;
-	background: #000;
-	border: 3px solid #000;
+	background: #444;
+	border: 3px solid #444;
 	border-radius: 4px;
 	text-decoration: none;
 	color: #FFF;
 	font-weight: bold;
 	font-size: 13px;
 	font-family: 'Noto Sans', sans-serif;
-	/* padding: 8px 10px 6px 10px;
-	background: #678f89;
-	border: 2px solid #678f89;
-	border-radius: 4px;
-	text-decoration: none;
-	color: #FFF;
-	position: relative;
-	text-align: center;
-	font-size: 14px; */
 }
 .button.button-secondary {
 	background: transparent;
-	border-color: #000;
-	color: #000;
-	/* padding: 8px 10px 6px 10px;
-	background: #678f89;
-	border: 2px solid #678f89;
-	border-radius: 4px;
-	text-decoration: none;
-	color: #FFF;
-	position: relative;
-	text-align: center;
-	font-size: 14px; */
+	border-color: #444;
+	color: #444;
 }
 .button.button-round {
 	border-radius: 100px;
@@ -145,7 +138,8 @@ p {
 	line-height: 1.8em;
 }
 p a {
-	border-bottom: 2px solid #c1c1c1;
+	color: #FFF;
+	border-bottom: 2px solid #FFF;
 	padding: 0;
 }
 a.link {
@@ -190,10 +184,10 @@ a.link {
 }
 .entry-list article a {
 	text-decoration: none;
-	color: #000;
+	color: #FFF;
 }
 .entry-list time {
-	color: #888;
+	color: #444;
 }
 .entry-list.single {
 	padding-bottom: 30px;
@@ -211,7 +205,7 @@ a.link {
 	margin-bottom: 40px;
 }
 .entry-comments {
-	background: #f1f1f1;
+	background: #999;
 	padding: 70px 0;
 }
 .entry-comments .container {
@@ -225,18 +219,18 @@ a.link {
 	margin: 0 auto;
 }
 .entry-comments h2 {
-	border-bottom: 1px solid #c1c1c1;
+	border-bottom: 2px solid #FFF;
 	padding-bottom: 35px;
 }
 .comment {
-	border-top: 1px solid #c1c1c1;
-	border-bottom: 1px solid #c1c1c1;
+	/* border-top: 1px solid #c1c1c1; */
+	border-bottom: 2px solid #FFF;
 	padding: 35px 0 20px;
 	margin: 2px 0 0 0;
 }
 .comment time {
 	display: block;
-	color: #888;
+	color: #444;
 	font-size: 14px;
 	margin: 3px 0 20px 0;
 }
@@ -261,7 +255,7 @@ a.link {
 
 
 .entry-comments form {
-	border-top: 1px solid #c1c1c1;
+	/* border-top: 2px solid #96b0bc; */
 	padding: 50px 0;
 	margin-top: 2px;
 }
@@ -273,6 +267,11 @@ legend {
 	text-transform: uppercase;
 	font-size: 14px;
 	margin-bottom: 5px;
+
+}
+
+form fieldset {
+	border: 1px solid #444;
 }
 form input[type=text],
 form input[type=password],
@@ -284,23 +283,36 @@ form textarea {
 	margin-bottom: 30px;
 	border-radius: 4px;
 	width: calc(100% - 32px);
+	background: #999;
 }
 .new-comment form input[type=text],
 .new-comment form textarea {
 	font-size: 15px;
+	background: #444;
+	color: #FFF;
 }
 form input[type=text]:focus,
 form input[type=password]:focus,
 form textarea:focus {
 	outline: 0;
-	border-color: #b1b1b1;
+	border-color: #444;
 }
 form input[type=text]:hover,
 form textarea:hover {
-	border-color: #b1b1b1;
+	border-color: #444;
 }
 .new-comment form textarea {
 	min-height: 125px;
+}
+.new-comment form input[type=text]:focus,
+.new-comment form input[type=password]:focus,
+.new-comment form textarea:focus {
+	outline: 0;
+	border-color: #96b0bc;
+}
+.new-comment form input[type=text]:hover,
+.new-comment form textarea:hover {
+	border-color: #96b0bc;
 }
 .edit-entry form textarea,
 .new-entry form textarea {
@@ -313,7 +325,7 @@ input[type=submit] {
 .message  {
 	border-radius:4px;
 	padding:1.5rem;
-	color:#fff;
+	color: white;
 	text-align:center;
 }
 
@@ -326,7 +338,7 @@ input[type=submit] {
 }
 
 .message.notice {
-	background-color: grey;
+	background-color: #444;
 }
 
 .check_label {
@@ -347,6 +359,7 @@ input[type=submit] {
 
 .tag-entry fieldset {
 	margin-bottom: 30px;
+
 }
 
 .tags a {
@@ -354,8 +367,8 @@ input[type=submit] {
 }
 
 .manage-tags {
-	background-color: black;
-	color: white;
+	background-color: #444;
+	color: #FFF;
 	text-decoration: none;
 	border-radius: 50%;
 	height: 48px;
