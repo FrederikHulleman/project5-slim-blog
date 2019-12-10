@@ -13,8 +13,23 @@ Available routes:
 -----------------------------------------------------------------------------------------------*/
 $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
   $slug = (string)$args['slug'];
+  $filters = array(
+      'name'   => array(
+                              'filter' => FILTER_SANITIZE_STRING,
+                              'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                             ),
+      'body'    => array(
+                              'filter' => FILTER_SANITIZE_STRING,
+                              'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                            ),
+      'id'    => array(
+                              'filter' => FILTER_SANITIZE_NUMBER_INT
+                            )
+  );
   $args = array_merge($args, $request->getParsedBody());
-  $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+  $args = filter_var_array($args,$filters);
+  $args = array_map('trim',$args);
+
   $id = (int)$args['id'];
 
   $log = json_encode(["id: $id","name: ".$args['name']]);

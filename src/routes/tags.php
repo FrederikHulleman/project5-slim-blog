@@ -14,8 +14,16 @@ Available routes:
 1. ROUTE FOR NEW TAG
 -----------------------------------------------------------------------------------------------*/
 $app->post('/tag/new', function ($request, $response, $args) {
+  $filters = array(
+      'name'   => array(
+                              'filter' => FILTER_SANITIZE_STRING,
+                              'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                             )
+  );
   $args = array_merge($args, $request->getParsedBody());
-  $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+  $args = filter_var_array($args,$filters);
+  $args = array_map('trim',$args);
+
   $args['name'] = ucwords(ltrim(trim($args['name']),'#'));
   if(!empty($args['name'])) {
     try {
@@ -63,8 +71,16 @@ $app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args)
   $id = (int)$args['id'];
 
   if($request->getMethod() == "POST") {
+    $filters = array(
+        'name'   => array(
+                                'filter' => FILTER_SANITIZE_STRING,
+                                'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                               )
+    );
     $args = array_merge($args, $request->getParsedBody());
-    $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+    $args = filter_var_array($args,$filters);
+    $args = array_map('trim',$args);
+    
     $args['name'] = ucwords(ltrim(trim($args['name']),'#'));
 
     $log = json_encode(["tag name: ".$args['name']]);

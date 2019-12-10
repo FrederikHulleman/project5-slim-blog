@@ -16,10 +16,32 @@ Available routes:
 1. ROUTE FOR NEW POST
 -----------------------------------------------------------------------------------------------*/
 $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
-
+  $csrf = $full_tags_list = $message = array();
   if($request->getMethod() == "POST") {
+    $filters = array(
+        'title'   => array(
+                                'filter' => FILTER_SANITIZE_STRING,
+                                'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                               ),
+        'body'    => array(
+                                'filter' => FILTER_SANITIZE_STRING,
+                                'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                               ),
+        'tags'     => array(
+                            'filter' => FILTER_SANITIZE_NUMBER_INT,
+                            'flags'  => FILTER_FORCE_ARRAY,
+                           )
+
+    );
+
     $args = array_merge($args, $request->getParsedBody());
-    $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+    $args = filter_var_array($args,$filters);
+
+    foreach($args as $key=>$value) {
+      if(!is_array($value)) {
+        $args[$key] = trim($value);
+      }
+    }
 
     $log = json_encode(["title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
@@ -72,6 +94,7 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
   }
+  var_dump($args);
   return $this->view->render($response, 'post_form.twig', [
    'csrf' => $csrf,
    'tags' => $full_tags_list,
@@ -87,8 +110,30 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
   $id = (int)$args['id'];
 
   if($request->getMethod() == "POST") {
+    $filters = array(
+        'title'   => array(
+                                'filter' => FILTER_SANITIZE_STRING,
+                                'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                               ),
+        'body'    => array(
+                                'filter' => FILTER_SANITIZE_STRING,
+                                'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                               ),
+        'tags'     => array(
+                            'filter' => FILTER_SANITIZE_NUMBER_INT,
+                            'flags'  => FILTER_FORCE_ARRAY,
+                           )
+
+    );
+
     $args = array_merge($args, $request->getParsedBody());
-    $args = filter_var_array($args,FILTER_SANITIZE_STRING);
+    $args = filter_var_array($args,$filters);
+
+    foreach($args as $key=>$value) {
+      if(!is_array($value)) {
+        $args[$key] = trim($value);
+      }
+    }
 
     $log = json_encode(["title: ".$args['title']]);
     if(!empty($args['title']) && !empty($args['body'])) {
