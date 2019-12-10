@@ -16,17 +16,20 @@ body {
 	background: #96b0bc;
 	color: #444;
 }
-header .site-header {
-	border-bottom: 2px solid #444;
-	margin: 0 auto;
-	height: 95px;
+
+header {
+  height: 200px;
+  color: white;
+  background: linear-gradient(transparent 5%,#96b0bc),
+              url('../img/sunset-mountains-panorama.webp') no-repeat center; */
+  background-size: cover;
 }
+
 header .logo {
 	border: 5px solid #444;
 	text-decoration: none;
 	color: #FFF;
 	font-size: 21px;
-	/* font-weight: bold; */
 	padding: 5px 10px;
 	margin: 24px 0 0 0;
 	float: left;
@@ -53,10 +56,6 @@ footer a {
 	border-bottom: 2px solid #666;
 	padding-bottom: 1px;
 }
-
-/* .container a {
-	color: #FFF;
-} */
 
 header a {
 	color: #444;
@@ -223,7 +222,6 @@ a.link {
 	padding-bottom: 35px;
 }
 .comment {
-	/* border-top: 1px solid #c1c1c1; */
 	border-bottom: 2px solid #FFF;
 	padding: 35px 0 20px;
 	margin: 2px 0 0 0;
@@ -255,7 +253,6 @@ a.link {
 
 
 .entry-comments form {
-	/* border-top: 2px solid #96b0bc; */
 	padding: 50px 0;
 	margin-top: 2px;
 }
