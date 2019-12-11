@@ -15,6 +15,7 @@ body {
 	padding: 0 25px;
 	background: #96b0bc;
 	color: #444;
+
 }
 
 header {
@@ -23,6 +24,7 @@ header {
   background: linear-gradient(transparent 5%,#96b0bc),
               url('../img/sunset-mountains-panorama.webp') no-repeat center; */
   background-size: cover;
+	border-bottom: 2px solid #444;
 }
 
 header .logo {

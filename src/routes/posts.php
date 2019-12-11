@@ -107,7 +107,7 @@ $app->map(['GET','POST'],'/post/new', function ($request, $response, $args) {
 2. ROUTE FOR EDIT POST
 -----------------------------------------------------------------------------------------------*/
 $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args) {
-  $id = (int)$args['id'];
+
 
   if($request->getMethod() == "POST") {
     $filters = array(
@@ -122,12 +122,17 @@ $app->map(['GET','POST'],'/post/edit/{id}', function ($request, $response, $args
         'tags'     => array(
                             'filter' => FILTER_SANITIZE_NUMBER_INT,
                             'flags'  => FILTER_FORCE_ARRAY,
-                           )
+                          ),
+        'id'    => array(
+                                'filter' => FILTER_SANITIZE_NUMBER_INT
+                              )
 
     );
 
     $args = array_merge($args, $request->getParsedBody());
     $args = filter_var_array($args,$filters);
+
+    $id = (int)$args['id'];
 
     foreach($args as $key=>$value) {
       if(!is_array($value)) {

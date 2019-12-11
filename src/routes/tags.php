@@ -24,7 +24,16 @@ $app->post('/tag/new', function ($request, $response, $args) {
   $args = filter_var_array($args,$filters);
   $args = array_map('trim',$args);
 
-  $args['name'] = ucwords(ltrim(trim($args['name']),'#'));
+  //filter out all characters which are not A-Za-z0-9, or _ or - and replace with nothing
+  //remove in front
+  //make 1st character of each word uppercase
+  $args['name'] = preg_replace(
+                      "/[^\w-]/",'',
+                          ucwords(
+                            ltrim($args['name'],'#')
+                          )
+                        );
+                        
   if(!empty($args['name'])) {
     try {
       if (Tag::where('name',$args['name'])->count() == 0) {
@@ -68,19 +77,21 @@ $app->post('/tag/new', function ($request, $response, $args) {
 2. ROUTE FOR EDIT TAG
 -----------------------------------------------------------------------------------------------*/
 $app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args) {
-  $id = (int)$args['id'];
 
   if($request->getMethod() == "POST") {
     $filters = array(
         'name'   => array(
                                 'filter' => FILTER_SANITIZE_STRING,
                                 'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
-                               )
+                              ),
+        'id'    => array(
+                                'filter' => FILTER_SANITIZE_NUMBER_INT
+                              )
     );
     $args = array_merge($args, $request->getParsedBody());
     $args = filter_var_array($args,$filters);
     $args = array_map('trim',$args);
-    
+
     $args['name'] = ucwords(ltrim(trim($args['name']),'#'));
 
     $log = json_encode(["tag name: ".$args['name']]);
@@ -121,6 +132,8 @@ $app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args)
     }
   }
   else {
+    $id = filter_var($args['id'],FILTER_SANITIZE_NUMBER_INT);
+
     try {
       $tag = Tag::find($id);
       $args['name'] = $tag->name;

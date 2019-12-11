@@ -12,13 +12,16 @@ Available routes:
 1. ROUTE FOR ADDING NEW COMMENTS TO A POST
 -----------------------------------------------------------------------------------------------*/
 $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
-  $slug = (string)$args['slug'];
   $filters = array(
       'name'   => array(
                               'filter' => FILTER_SANITIZE_STRING,
                               'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
                              ),
       'body'    => array(
+                              'filter' => FILTER_SANITIZE_STRING,
+                              'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
+                            ),
+      'slug'    => array(
                               'filter' => FILTER_SANITIZE_STRING,
                               'flags'  => FILTER_FLAG_NO_ENCODE_QUOTES,
                             ),
@@ -30,36 +33,54 @@ $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
   $args = filter_var_array($args,$filters);
   $args = array_map('trim',$args);
 
-  $id = (int)$args['id'];
+  $id = $args['id'];
+  $slug = $args['slug'];
 
-  $log = json_encode(["id: $id","name: ".$args['name']]);
-  if(!empty($args['name']) && !empty($args['body'])) {
-    $args['date'] = date('Y-m-d H:i:s');
+  if(!empty($id)) {
 
-    try {
-      $comment = new Comment($args);
-      $post = Post::find($id);
-      $post->comments()->save($comment);
-      $_SESSION['message']['content'] = 'Successfully added comment';
-      $_SESSION['message']['type'] = 'success';
-      $this->logger->notice("New comment | SUCCESSFUL | $log");
-      //to avoid resubmitting values:
-      $url = $this->router->pathFor('post-detail',['slug' => $slug]);
-      return $response->withStatus(302)->withHeader('Location',$url);
-    } catch(\Exception $e){
-        $_SESSION['message']['content'] = 'Something went wrong adding the new comment. Try again later.';
-        $_SESSION['message']['type'] = 'error';
-        $this->logger->notice("New comment: $id | UNSUCCESSFUL | " . $e->getMessage());
+    if(!empty($args['name']) && !empty($args['body'])) {
+      $args['date'] = date('Y-m-d H:i:s');
+
+      try {
+        $comment = new Comment();
+        $comment_args = array_intersect_key($args,array_flip($comment->getFillable()));
+
+        foreach($comment_args as $key=>$value) {
+          $comment->$key = $value;
+        }
+
+        $post = Post::find($id);
+        $post->comments()->save($comment);
+
+        $_SESSION['message']['content'] = 'Successfully added comment';
+        $_SESSION['message']['type'] = 'success';
+        $this->logger->notice("New comment post $id | SUCCESSFUL");
+
+      } catch(\Exception $e){
+          $_SESSION['message']['content'] = 'Something went wrong adding the new comment. Try again later.';
+          $_SESSION['message']['type'] = 'error';
+          $this->logger->notice("New comment post $id | UNSUCCESSFUL | " . $e->getMessage());
+      }
+    }
+    else {
+      $_SESSION['message']['content'] = "All comment fields are required.";
+      $_SESSION['message']['type'] = 'error';
+      $this->logger->notice("New comment post $id | UNSUCCESSFUL | all fields required");
+      $_SESSION['comment']['name'] = $args['name'];
+      $_SESSION['comment']['body'] = $args['body'];
     }
   }
   else {
-    $_SESSION['message']['content'] = "All comment fields are required.";
+    $_SESSION['message']['content'] = "Something went wrong adding the new comment. Try again later.";
     $_SESSION['message']['type'] = 'error';
-    $this->logger->notice("New comment | UNSUCCESSFUL | all fields required");
-    $_SESSION['comment']['name'] = $args['name'];
-    $_SESSION['comment']['body'] = $args['body'];
+    $this->logger->notice("New comment | UNSUCCESSFUL | No valid post_id");
   }
-  $url = $this->router->pathFor('post-detail',['slug' => $slug]);
+
+  if(!empty($slug)) {
+    $url = $this->router->pathFor('post-detail',['slug' => $slug]);
+  } else {
+    $url = $this->router->pathFor('posts-list');
+  }
   return $response->withStatus(302)->withHeader('Location',$url);
 
 })->setName('new-comment');
