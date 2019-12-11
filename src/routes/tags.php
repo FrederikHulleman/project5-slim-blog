@@ -48,10 +48,10 @@ $app->post('/tag/new', function ($request, $response, $args) {
       if (Tag::whereraw($query)->count() == 0) {
         //if the tag name doesn't exists yet
         $tag = new Tag();
-        //make sure only the 'fillable' args for a comment remain
+        //make sure only the 'fillable' args remain
         $tag_args = array_intersect_key($args,array_flip($tag->getFillable()));
 
-        //set all properties for the new comment
+        //set all properties
         foreach($tag_args as $key=>$value) {
           $tag->$key = $value;
         }
@@ -95,6 +95,7 @@ $app->map(['GET','POST'],'/tag/edit/[{id}]', function ($request, $response, $arg
   $csrf = $message = array();
   $id = "";
 
+  //check whether the user posted data
   if($request->getMethod() == "POST") {
     //filter settings for all args from POST & GET
     $filters = array(
@@ -136,10 +137,10 @@ $app->map(['GET','POST'],'/tag/edit/[{id}]', function ($request, $response, $arg
           if (Tag::whereraw($query)->count() == 0) {
             //if the tag name doesn't exist yet:
             $tag = Tag::findorfail($id);
-            //make sure only the 'fillable' args for a comment remain
+            //make sure only the 'fillable' argsremain
             $tag_args = array_intersect_key($args,array_flip($tag->getFillable()));
 
-            //set all properties for the new comment
+            //set all properties
             foreach($tag_args as $key=>$value) {
               $tag->$key = $value;
             }
@@ -184,7 +185,7 @@ $app->map(['GET','POST'],'/tag/edit/[{id}]', function ($request, $response, $arg
       //techical error; redirect to tag list
       $_SESSION['message']['content'] = "Something went wrong adding the new tag. Try again later.";
       $_SESSION['message']['type'] = 'error';
-      $this->logger->notice("Edit comment | UNSUCCESSFUL | No valid ID");
+      $this->logger->notice("Edit tag | UNSUCCESSFUL | No valid ID");
       //determine the right redirect
       $url = $this->router->pathFor('tags-list');
       return $response->withStatus(302)->withHeader('Location',$url);
@@ -275,7 +276,7 @@ $app->post('/tag/delete', function ($request, $response, $args) {
       //messaging to the user
       $_SESSION['message']['content'] = 'Successfully deleted Tag "'.$name.'"';
       $_SESSION['message']['type'] = 'success';
-      $this->logger->info("Delete tag: $id | SUCCESSFUL");
+      $this->logger->notice("Delete tag: $id | SUCCESSFUL");
       //determine the right redirect
       $url = $this->router->pathFor('tags-list');
       return $response->withStatus(302)->withHeader('Location',$url);
