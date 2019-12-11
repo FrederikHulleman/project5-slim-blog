@@ -9,7 +9,15 @@ composer update
 ###  In this blog app you will experience the following functionalities:
 #### 1. Viewing all blog posts, incl. their tags
 #### 2. Filtering the blog posts by tag
-#### 2. 
+#### 3. Viewing blog details, reading its comments and adding new comments
+#### 4. Adding & editing blog details, incl. their tags
+#### 5. Deleting blog posts
+#### 6. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
 
-### In src/Classes you will find the
-1.
+## The most important folders & files within this project:
+
+|--log
+  |-- app.log   # for all log details
+|--public
+|--src
+|--templates
