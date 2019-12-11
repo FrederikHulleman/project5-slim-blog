@@ -5,11 +5,6 @@ return [
         'determineRouteBeforeAppMiddleware' => false,
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
 
-        // Renderer settings
-        'renderer' => [
-            'template_path' => __DIR__ . '/../templates/',
-        ],
-
         //twig view settings
         'view' => [
           'template_path' => __DIR__ . '/../templates/',
@@ -24,7 +19,7 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
 
-        //db settings
+        //db settings for eloquent ORM 
         'db' => [
             'driver' => 'sqlite',
             'host' => 'localhost',
