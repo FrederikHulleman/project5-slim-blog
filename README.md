@@ -17,11 +17,11 @@ composer update
 ## The most important folders & files within this project:
 
 |--log   
-|  |-- app.log   # contains all log details  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- app.log   # contains all log details  
 |--public         # contains css files, images, htaccess and index.php files  
-|   |--css  
-|   |--img  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--css  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--img  
 |--src            # contains the database file & the primary Slim files   
-|   |--Classes    # contains the Post, Comment & Tag class files, based on Eloquent ORM  
-|   |--routes     # contains the post, comment & tag route files  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Classes    # contains the Post, Comment & Tag class files, based on Eloquent ORM  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--routes     # contains the post, comment & tag route files  
 |--templates      # contains all twig templates  
