@@ -14,7 +14,7 @@ Available routes:
 $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
   $id = $slug = "";
 
-  //filter settings for all POSTED args
+  //filter settings for all args from POST & GET
   $filters = array(
       'name'   => array(
                               'filter' => FILTER_SANITIZE_STRING,
@@ -93,7 +93,7 @@ $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
     $this->logger->notice("New comment | UNSUCCESSFUL | No valid post_id");
   }
 
-  //determine the right redirect, depending on whether or not a slug is available 
+  //determine the right redirect, depending on whether or not a slug is available
   if(!empty($slug)) {
     $url = $this->router->pathFor('post-detail',['slug' => $slug]);
   } else {
