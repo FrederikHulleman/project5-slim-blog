@@ -5,8 +5,10 @@ use Illuminate\Database\Eloquent\Model as Model;
 
 class Post extends Model {
 
-   public $timestamps = false;
-   protected $fillable = ['title','body','date','slug'];
+  //no created & updated timestamps in this model
+  public $timestamps = false;
+  //the only allowable columns to be updated
+  protected $fillable = ['title','body','date','slug'];
 
    /**
      * Get the comments that belongs to the post.
