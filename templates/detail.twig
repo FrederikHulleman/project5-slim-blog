@@ -4,54 +4,63 @@
 
 {% block content %}
 
-<section>
-    <div class="container">
-        <div class="entry-list single">
-        {% if message.content is not empty %}
-          <p class="message {{ message.type }}">{{ message.content|raw }}</p>
-        {% endif %}
-            <article>
-                <h1>{{ post.title|raw }}</h1>
-                <time datetime="{{ post.date }}">{{ post.date|date("F j, Y | H:i:s") }}</time>
-                {% if post.tags is not empty %}
-                  <p class="tags">
-                  {% for tag in post.tags %}
-                      <a href="{{ path_for('posts-list', { 'tag': tag.name }) }}">#{{ tag.name }}</a>
-                  {% endfor %}
-                  </p>
-                {% endif %}
-                <div class="entry">
-                   {{ post.body|raw|nl2br }}
+  <section>
+      <div class="container">
+          <div class="entry-list single">
 
-                </div>
-            </article>
-        </div>
-        <div class="edit">
-         <form method="post" action="{{ path_for('delete-post') }}" onsubmit="return confirm('Are you sure you want to delete this post?');">
-         <input type="hidden" value="{{ post.id }}" name="delete">
-         <a class="button" href="{{ path_for('edit-post', { 'id': post.id }) }}">Edit Entry</a>
-         <input type="submit" class="button" value="Delete">
-         {% for key, value in csrf_delete %}
-             <input type="hidden" name="{{ key }}" value="{{ value }}">
-         {% endfor %}
-         </form>
-        </div>
-    </div>
-</section>
+            {% if message.content is not empty %}
+              <p class="message {{ message.type }}">{{ message.content|raw }}</p>
+            {% endif %}
 
-<section class="entry-comments">
-    <div class="container">
-            <h2>Comments</h2>
+                <article>
+                    <h1>{{ post.title|raw }}</h1>
+                    <time datetime="{{ post.date }}">{{ post.date|date("F j, Y | H:i:s") }}</time>
 
-            {% for comment in post.comments %}
-                {{ include("comment.twig") }}
-            {%  else %}
-              <p class="message notice">No comments yet</p>
-            {% endfor %}
+                    {% if post.tags is not empty %}
+                      <p class="tags">
 
-            {{ include("comment_form.twig") }}
+                        {% for tag in post.tags %}
+                          <a href="{{ path_for('posts-list', { 'tag': tag.name }) }}">#{{ tag.name }}</a>
+                        {% endfor %}
+
+                      </p>
+                    {% endif %}
+
+                    <div class="entry">
+                       {{ post.body|raw|nl2br }}
+                    </div>
+                </article>
+            </div>
+
+            <div class="edit">
+             <form method="post" action="{{ path_for('delete-post') }}" onsubmit="return confirm('Are you sure you want to delete this post?');">
+               <input type="hidden" value="{{ post.id }}" name="delete">
+               <a class="button" href="{{ path_for('edit-post', { 'id': post.id }) }}">Edit Entry</a>
+               <input type="submit" class="button" value="Delete">
+
+               {% for key, value in csrf_delete %}
+                   <input type="hidden" name="{{ key }}" value="{{ value }}">
+               {% endfor %}
+
+             </form>
+          </div>
+      </div>
+  </section>
+
+  <section class="entry-comments">
+      <div class="container">
+              <h2>Comments</h2>
+
+              {% for comment in post.comments %}
+                  {{ include("comment.twig") }}
+              {%  else %}
+                <p class="message notice">No comments yet</p>
+              {% endfor %}
+
+              {{ include("comment_form.twig") }}
 
 
-    </div>
-</section>
+      </div>
+  </section>
+
 {% endblock %}

@@ -3,28 +3,36 @@
 {% block title %}Manage tags{% endblock %}
 
 {% block content %}
+
   <section>
     <div class="container">
       <div class="tag-entry">
         <h2>Manage tags</h2>
+
         {% if message.content is not empty %}
           <p class="message {{ message.type }}">{{ message.content|raw }}</p>
         {% endif %}
 
         {{ include("tag_form.twig") }}
-        {% if args.id is empty and tags is not empty %}
-        <fieldset>
-          <legend>Existing tags:</legend>
 
-          {% for tag in tags %}
-              {{ include("tag.twig") }}
-          {%  else %}
-            <p class="message notice">No tags yet</p>
-          {% endfor %}
+        {% if args.id is empty and tags is not empty %}
+
+          <fieldset>
+            <legend>Existing tags:</legend>
+
+            {% for tag in tags %}
+                {{ include("tag.twig") }}
+            {%  else %}
+              <p class="message notice">No tags yet</p>
+            {% endfor %}
+            
+          </fieldset>
+
         {% endif %}
-        </fieldset>
+
 
       </div>
     </div>
   </section>
+
 {% endblock %}

@@ -3,23 +3,26 @@
 {% block title %}Blog posts{% endblock %}
 
 {% block content %}
+  <section>
+      <div class="container">
 
-<section>
-    <div class="container">
+        <div class="entry-list">
 
-      <div class="entry-list">
-      {% if args.tag is not empty %}
-        <h2>#{{ args.tag }}</h2>
-      {% endif %}
-      {% if message.content is not empty %}
-        <p class="message {{ message.type }}">{{ message.content|raw }}</p>
-      {% endif %}
-        {% for post in posts %}
-            {{ include("post.twig") }}
-        {%  else %}
-          <p class="message notice">No posts yet</p>
-        {% endfor %}
+          {% if args.tag is not empty %}
+            <h2>#{{ args.tag }}</h2>
+          {% endif %}
+
+          {% if message.content is not empty %}
+            <p class="message {{ message.type }}">{{ message.content|raw }}</p>
+          {% endif %}
+
+          {% for post in posts %}
+              {{ include("post.twig") }}
+          {%  else %}
+            <p class="message notice">No posts yet</p>
+          {% endfor %}
+
+        </div>
       </div>
-    </div>
-</section>
+  </section>
 {% endblock %}

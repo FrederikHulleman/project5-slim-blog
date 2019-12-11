@@ -13,12 +13,15 @@
     <legend>{{ legend }}</legend>
     <input id="tag_name" type="text" name="name" value="#{{ args.name }}" />
     &nbsp;<input type="submit" value="{{button}}" class="button">
+
     {% if args.id is not empty %}
       <input type="hidden" name="id" value="{{ args.id }}">
       <a href="{{ path_for('tags-list') }}" class="button button-secondary">Cancel</a>
     {% endif %}
+
     {% for key, value in csrf %}
         <input type="hidden" name="{{ key }}" value="{{ value }}">
     {% endfor %}
+
   </form>
 </fieldset>

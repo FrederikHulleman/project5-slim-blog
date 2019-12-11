@@ -9,40 +9,48 @@
 {% endif %}
 
 {% block title %}
-{{ label }}
+  {{ label }}
 {% endblock %}
 
 {% block content %}
+
   <section>
       <div class="container">
           <div class="new-entry">
               <h2>{{ label }}</h2>
+
               {% if message.content is not empty %}
                 <p class="message {{ message.type }}">{{ message.content|raw }}</p>
               {% endif %}
+
               <form method="post">
                   <label for="title"> Title</label>
                   <input type="text" name="title" value="{{ args.title|raw }}"><br>
                   <label for="entry">Entry</label>
                   <textarea rows="5" name="body">{{ args.body|raw }}</textarea>
+
                   {% if tags is not empty %}
                     <fieldset>
                       <legend>Tags:</legend>
+
                       {% for tag in tags %}
+
                         {% if tag.id in args.tags %}
                           <input type="checkbox" id="tag_{{ tag.id }}" name="tags[]" value="{{ tag.id }}" CHECKED />
                         {% else %}
                           <input type="checkbox" id="tag_{{ tag.id }}" name="tags[]" value="{{ tag.id }}" />
                         {% endif %}
+
                         <label class="check_label" for="tag_{{ tag.id }}">{{ tag.name }}</label><br>
+
                       {% endfor %}
+
                     </fieldset><br>
                   {% endif %}
+
                   <input type="submit" value="{{ label }}" class="button">
 
-
                   <a href="{{ path }}" class="button button-secondary">Cancel</a>
-
 
                   {% for key, value in csrf %}
                       <input type="hidden" name="{{ key }}" value="{{ value }}">
@@ -56,4 +64,5 @@
           </div>
       </div>
   </section>
+
 {% endblock %}
