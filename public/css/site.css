@@ -269,7 +269,8 @@ legend {
 
 }
 
-form fieldset {
+form fieldset,
+fieldset {
 	border: 1px solid #444;
 }
 form input[type=text],
