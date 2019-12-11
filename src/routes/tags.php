@@ -25,18 +25,21 @@ $app->post('/tag/new', function ($request, $response, $args) {
   $args = array_map('trim',$args);
 
   //filter out all characters which are not A-Za-z0-9, or _ or - and replace with nothing
-  //remove in front
+  //remove # in front
   //make 1st character of each word uppercase
   $args['name'] = preg_replace(
                       "/[^\w-]/",'',
                           ucwords(
-                            ltrim($args['name'],'#')
+                            strtolower(
+                              ltrim($args['name'],'#')
+                            )
                           )
                         );
-                        
+
   if(!empty($args['name'])) {
     try {
-      if (Tag::where('name',$args['name'])->count() == 0) {
+      $query = "lower(name) = lower('".$args['name']."')";
+      if (Tag::whereraw($query)->count() == 0) {
         $tag = new Tag();
         $tag_args = array_intersect_key($args,array_flip($tag->getFillable()));
 
@@ -49,9 +52,6 @@ $app->post('/tag/new', function ($request, $response, $args) {
         $_SESSION['message']['content'] = 'Successfully added tag';
         $_SESSION['message']['type'] = 'success';
         $this->logger->notice("New tag | SUCCESSFUL | $log");
-
-        $url = $this->router->pathFor('tags-list');
-        return $response->withStatus(302)->withHeader('Location',$url);
       } else {
         $_SESSION['message']['content'] = "Tag name \"".$args['name']."\" already exists";
         $_SESSION['message']['type'] = 'error';
@@ -75,8 +75,12 @@ $app->post('/tag/new', function ($request, $response, $args) {
 
 /*-----------------------------------------------------------------------------------------------
 2. ROUTE FOR EDIT TAG
+    - when a technical error occurs, the user is redirected to the tag list page
 -----------------------------------------------------------------------------------------------*/
-$app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args) {
+$app->map(['GET','POST'],'/tag/edit/[{id}]', function ($request, $response, $args) {
+  //initialize template variables
+  $csrf = $message = array();
+  $id = "";
 
   if($request->getMethod() == "POST") {
     $filters = array(
@@ -91,57 +95,101 @@ $app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args)
     $args = array_merge($args, $request->getParsedBody());
     $args = filter_var_array($args,$filters);
     $args = array_map('trim',$args);
+    $id = $args['id'];
 
-    $args['name'] = ucwords(ltrim(trim($args['name']),'#'));
+    if(!empty($id)) {
 
-    $log = json_encode(["tag name: ".$args['name']]);
-    if(!empty($args['name'])) {
+      //filter out all characters which are not A-Za-z0-9, or _ or - and replace with nothing
+      //remove # in front
+      //make 1st character of each word uppercase
+      $args['name'] = preg_replace(
+                          "/[^\w-]/",'',
+                              ucwords(
+                                strtolower(
+                                  ltrim($args['name'],'#')
+                                )
+                              )
+                            );
 
-      try {
-        if (Tag::where('name',$args['name'])->where('id','<>',$id)->count() == 0) {
-          $tag = Tag::find($id);
-          $tag_args = array_intersect_key($args,array_flip($tag->getFillable()));
+      if(!empty($args['name'])) {
 
-          foreach($tag_args as $key=>$value) {
-            $tag->$key = $value;
+        try {
+          $query = "lower(name) = lower('".$args['name']."') AND id <> $id";
+          if (Tag::whereraw($query)->count() == 0) {
+            $tag = Tag::findorfail($id);
+            $tag_args = array_intersect_key($args,array_flip($tag->getFillable()));
+
+            foreach($tag_args as $key=>$value) {
+              $tag->$key = $value;
+            }
+            $tag->save();
+
+            $log = json_encode(["id: $tag->id","name: ".$tag->name]);
+            $_SESSION['message']['content'] = 'Successfully updated Tag "'.$args['name'].'"';
+            $_SESSION['message']['type'] = 'success';
+            $this->logger->notice("Edit tag: $id | SUCCESSFUL | $log");
+            //redirect back to tag list
+            $url = $this->router->pathFor('tags-list');
+            return $response->withStatus(302)->withHeader('Location',$url);
+          } else {
+            //functional error; no redirect
+            $_SESSION['message']['content'] = "Tag name \"".$args['name']."\" already exists";
+            $_SESSION['message']['type'] = 'error';
+            $this->logger->notice("Edit tag: $id | UNSUCCESSFUL | Tag name \"". $args['name']  ."\" already exists");
           }
-          $tag->save();
 
-          $_SESSION['message']['content'] = 'Successfully updated Tag "'.$args['name'].'"';
-          $_SESSION['message']['type'] = 'success';
-          $this->logger->notice("Edit tag: $id | SUCCESSFUL | $log");
-          //to avoid resubmitting values:
-          $url = $this->router->pathFor('tags-list');
-          return $response->withStatus(302)->withHeader('Location',$url);
-        } else {
-          $_SESSION['message']['content'] = "Tag name \"".$args['name']."\" already exists";
-          $_SESSION['message']['type'] = 'error';
-          $this->logger->notice("New tag | UNSUCCESSFUL | Tag name \"". $args['name']  ."\" already exists");
+        } catch(\Exception $e){
+            //techical error; redirect to tag list
+            $_SESSION['message']['content'] = 'Something went wrong updating the tag. Try again later.';
+            $_SESSION['message']['type'] = 'error';
+            $this->logger->notice("Edit tag: $id | UNSUCCESSFUL | " . $e->getMessage());
+            $url = $this->router->pathFor('tags-list');
+            return $response->withStatus(302)->withHeader('Location',$url);
         }
-
-      } catch(\Exception $e){
-          $_SESSION['message']['content'] = 'Something went wrong updating the tag. Try again later.';
-          $_SESSION['message']['type'] = 'error';
-          $this->logger->notice("Edit tag: $id | UNSUCCESSFUL | " . $e->getMessage());
+      }
+      else {
+        //functional error; no redirect
+        $_SESSION['message']['content'] = "Tag name field is required.";
+        $_SESSION['message']['type'] = 'error';
+        $this->logger->notice("Edit tag: $id | UNSUCCESSFUL | Tag name field is required");
       }
     }
     else {
-      $_SESSION['message']['content'] = "All fields are required.";
+      //techical error; redirect to tag list
+      $_SESSION['message']['content'] = "Something went wrong adding the new tag. Try again later.";
       $_SESSION['message']['type'] = 'error';
-      $this->logger->notice("New tag | UNSUCCESSFUL | all fields required");
+      $this->logger->notice("Edit comment | UNSUCCESSFUL | No valid ID");
+      $url = $this->router->pathFor('tags-list');
+      return $response->withStatus(302)->withHeader('Location',$url);
     }
   }
+  //if request method = GET and the edit form is being requested with the right ID
   else {
-    $id = filter_var($args['id'],FILTER_SANITIZE_NUMBER_INT);
 
-    try {
-      $tag = Tag::find($id);
-      $args['name'] = $tag->name;
-      $this->logger->info("Edit tag: $id | VIEW | SUCCESSFUL");
-    } catch(\Exception $e){
-        $_SESSION['message']['content'] = 'Something went wrong retrieving the tag name. Try again later.';
-        $_SESSION['message']['type'] = 'error';
-        $this->logger->notice("Edit tag: $id | VIEW | UNSUCCESSFUL | " . $e->getMessage());
+    $id = trim(filter_var($args['id'],FILTER_SANITIZE_NUMBER_INT));
+
+    if(!empty($id)) {
+
+      try {
+        $tag = Tag::findorfail($id);
+        $args['name'] = $tag->name;
+        $this->logger->info("Edit tag: $id | VIEW | SUCCESSFUL");
+      } catch(\Exception $e){
+        //techical error; redirect to tag list
+          $_SESSION['message']['content'] = 'Something went wrong retrieving the tag name. Try again later.';
+          $_SESSION['message']['type'] = 'error';
+          $this->logger->notice("Edit tag: $id | VIEW | UNSUCCESSFUL | " . $e->getMessage());
+          $url = $this->router->pathFor('tags-list');
+          return $response->withStatus(302)->withHeader('Location',$url);
+      }
+    }
+    else {
+      //techical error; redirect to tag list
+      $_SESSION['message']['content'] = "Something went wrong retrieving the tag name. Try again later.";
+      $_SESSION['message']['type'] = 'error';
+      $this->logger->notice("Edit tag | VIEW | UNSUCCESSFUL | No valid ID");
+      $url = $this->router->pathFor('tags-list');
+      return $response->withStatus(302)->withHeader('Location',$url);
     }
   }
 
@@ -152,7 +200,6 @@ $app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args)
     $valueKey => $request->getAttribute($valueKey)
   ];
 
-  $message = array();
   if(!empty($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
@@ -169,16 +216,16 @@ $app->map(['GET','POST'],'/tag/edit/{id}', function ($request, $response, $args)
 3. ROUTE FOR DELETE TAG
 -----------------------------------------------------------------------------------------------*/
 $app->post('/tag/delete', function ($request, $response, $args) {
+  $id = "";
 
   $args = $request->getParsedBody();
-  $args = filter_var_array($args,FILTER_SANITIZE_NUMBER_INT);
-  $id = (int)$args['delete'];
+  $id = trim(filter_var($args['delete'],FILTER_SANITIZE_NUMBER_INT));
 
   if (!empty($id)) {
     try {
-      $tag = Tag::find($id);
+      $tag = Tag::findorfail($id);
       $name = $tag->name;
-      $tag = Tag::find($id)->delete();
+      $tag->delete();
 
       $_SESSION['message']['content'] = 'Successfully deleted Tag "'.$name.'"';
       $_SESSION['message']['type'] = 'success';
@@ -190,7 +237,7 @@ $app->post('/tag/delete', function ($request, $response, $args) {
        $this->logger->notice("Delete tag: $id | UNSUCCESSFUL | " . $e->getMessage());
     }
   } else {
-    $this->logger->notice("Delete tag: $id | UNSUCCESSFUL | No valid ID");
+    $this->logger->notice("Delete tag | UNSUCCESSFUL | No valid ID");
   }
 
   $_SESSION['message']['content'] = 'Something went wrong deleting the tag. Try again later.';
@@ -203,6 +250,8 @@ $app->post('/tag/delete', function ($request, $response, $args) {
 4. Tag list
 -----------------------------------------------------------------------------------------------*/
 $app->get('/tags', function ($request, $response, $args) {
+    $full_tags_list = $csrf = $message = array();
+
     try {
       $full_tags_list = Tag::orderBy('name','asc')->get();
       $this->logger->info("View tags list | SUCCESSFUL");
@@ -219,7 +268,6 @@ $app->get('/tags', function ($request, $response, $args) {
       $valueKey => $request->getAttribute($valueKey)
     ];
 
-    $message = array();
     if(!empty($_SESSION['message'])) {
       $message = $_SESSION['message'];
       unset($_SESSION['message']);

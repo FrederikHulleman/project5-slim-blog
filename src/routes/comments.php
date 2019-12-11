@@ -12,6 +12,8 @@ Available routes:
 1. ROUTE FOR ADDING NEW COMMENTS TO A POST
 -----------------------------------------------------------------------------------------------*/
 $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
+  $id = $slug = "";
+  
   $filters = array(
       'name'   => array(
                               'filter' => FILTER_SANITIZE_STRING,
@@ -49,7 +51,7 @@ $app->post('/post/{slug}/comment/new', function ($request, $response, $args) {
           $comment->$key = $value;
         }
 
-        $post = Post::find($id);
+        $post = Post::findorfail($id);
         $post->comments()->save($comment);
 
         $_SESSION['message']['content'] = 'Successfully added comment';

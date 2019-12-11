@@ -23,7 +23,8 @@ class Tag extends Model {
       $this->posts()->detach();
       parent::delete();
     }
-    
+
+
 
 }
 
