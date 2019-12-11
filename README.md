@@ -17,7 +17,7 @@ composer update
 ## The most important folders & files within this project:
 
 |--log   
-    |-- app.log   # contains all log details  
+⇥⇥|-- app.log   # contains all log details  
 |--public         # contains css files, images, htaccess and index.php files  
     |--css  
     |--img  
