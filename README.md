@@ -5,3 +5,11 @@
 ```bash
 composer update
 ```
+
+##  In this blog app you will experience the following functionalities:
+### 1. Viewing all blog posts, incl. their tags
+### 2. Filtering the blog posts by tag
+### 2. 
+
+### In src/Classes you will find the
+1.
