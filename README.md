@@ -9,7 +9,8 @@ composer update
 ### In this Blog the following main concepts, languages, frameworks, packages and other technologies are applied:
 PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim CSRF | Monolog | HTML | CSS
 
-###  In this blog app you will experience the following functionalities:
+## In this blog app you will experience the following functionalities:
+#### (see screenshots below)
 1. Viewing all blog posts, incl. their tags
 2. Filtering the blog posts by tag
 3. Viewing blog details, reading its comments and adding new comments
@@ -29,3 +30,15 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Classes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the Post, Comment & Tag class files, based on Eloquent ORM  
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--routes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the post, comment & tag route files  
 |--templates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains all twig templates  
+
+## The most important folders & files within this project:
+1. Viewing all blog posts, incl. their tags
+
+![Image of Main Screen](screenshots/posts.png)
+
+2. Filtering the blog posts by tag
+3. Viewing blog details, reading its comments and adding new comments
+4. Adding blogs, incl. their tags
+5. Editing blog details, incl. their tags
+5. Deleting blog posts
+6. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
