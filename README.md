@@ -1,9 +1,10 @@
 # PHP Team Treehouse TechDegree project #5
 #### A blog app based on Slim, Eloquent ORM and Twig
 
-Contents: | [Installation instructions](#installation-instructions) | [Tech used](#tech-used) | [Folder & file structure](##folder--file-structure) |
+| [What the app does](#what-the-app-does) | [Installation instructions](#installation-instructions) | [Tech used](#tech-used) | [Folder & file structure](#folder--file-structure) |
 
-## In this blog app you will experience the following functionalities:
+## What the app does
+#### In this blog app you will experience the following functionalities:
 1. Viewing all blog posts, incl. their tags
 
 ![Image of Main Screen](screenshots/posts.png)
