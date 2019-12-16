@@ -31,6 +31,15 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--routes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the post, comment & tag route files  
 |--templates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains all twig templates  
 
+      .
+      ├── build                   # Compiled files (alternatively `dist`)
+      ├── docs                    # Documentation files (alternatively `doc`)
+      ├── src                     # Source files (alternatively `lib` or `app`)
+      ├── test                    # Automated tests (alternatively `spec` or `tests`)
+      ├── tools                   # Tools and utilities
+      ├── LICENSE
+      └── README.md
+
 ## Screenshots
 1. Viewing all blog posts, incl. their tags
 
