@@ -21,24 +21,16 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 
 ## The most important folders & files within this project:
 
-|--log   
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- app.log&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains all log details  
-|--public&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains css files, images, htaccess and index.php files  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--css  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--img  
-|--src&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the database file & the primary Slim files   
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Classes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the Post, Comment & Tag class files, based on Eloquent ORM  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--routes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the post, comment & tag route files  
-|--templates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains all twig templates  
-
       .
-      ├── build                   # Compiled files (alternatively `dist`)
-      ├── docs                    # Documentation files (alternatively `doc`)
-      ├── src                     # Source files (alternatively `lib` or `app`)
-      ├── test                    # Automated tests (alternatively `spec` or `tests`)
-      ├── tools                   # Tools and utilities
-      ├── LICENSE
-      └── README.md
+      ├── log                         # contains all log details  
+      │   └── app.log                 # contains css files, images, htaccess and index.php files  
+      ├── public
+      │   ├── css
+      │   └── img
+      ├── src                         # contains the database file & the primary Slim files  
+      │   ├── Classes                 # contains the Post, Comment & Tag class files, based on Eloquent ORM  
+      │   └── routes                  # contains the post, comment & tag route files  
+      └── templates                   # contains all twig templates
 
 ## Screenshots
 1. Viewing all blog posts, incl. their tags
@@ -68,19 +60,3 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 7. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
 
 ![Image of Main Screen](screenshots/posts.png)
-
-Folder Structure Conventions
-============================
-
-> Folder structure options and naming conventions for software projects
-
-### A typical top-level directory layout
-
-    .
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── docs                    # Documentation files (alternatively `doc`)
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── test                    # Automated tests (alternatively `spec` or `tests`)
-    ├── tools                   # Tools and utilities
-    ├── LICENSE
-    └── README.md
