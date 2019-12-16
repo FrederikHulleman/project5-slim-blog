@@ -16,8 +16,8 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 3. Viewing blog details, reading its comments and adding new comments
 4. Adding blogs, incl. their tags
 5. Editing blog details, incl. their tags
-5. Deleting blog posts
-6. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
+6. Deleting blog posts
+7. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
 
 ## The most important folders & files within this project:
 
@@ -31,14 +31,47 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--routes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains the post, comment & tag route files  
 |--templates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# contains all twig templates  
 
-## The most important folders & files within this project:
+## Screenshots
 1. Viewing all blog posts, incl. their tags
 
 ![Image of Main Screen](screenshots/posts.png)
 
 2. Filtering the blog posts by tag
+
+![Image of Main Screen](screenshots/posts.png)
+
 3. Viewing blog details, reading its comments and adding new comments
+
+![Image of Main Screen](screenshots/posts.png)
+
 4. Adding blogs, incl. their tags
+
+![Image of Main Screen](screenshots/posts.png)
+
 5. Editing blog details, incl. their tags
-5. Deleting blog posts
-6. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
+
+![Image of Main Screen](screenshots/posts.png)
+
+6. Deleting blog posts
+
+![Image of Main Screen](screenshots/posts.png)
+
+7. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
+
+![Image of Main Screen](screenshots/posts.png)
+
+Folder Structure Conventions
+============================
+
+> Folder structure options and naming conventions for software projects
+
+### A typical top-level directory layout
+
+    .
+    ├── build                   # Compiled files (alternatively `dist`)
+    ├── docs                    # Documentation files (alternatively `doc`)
+    ├── src                     # Source files (alternatively `lib` or `app`)
+    ├── test                    # Automated tests (alternatively `spec` or `tests`)
+    ├── tools                   # Tools and utilities
+    ├── LICENSE
+    └── README.md
