@@ -1,5 +1,9 @@
 # PHP Team Treehouse TechDegree project #5
-## A blog app based on Slim, Eloquent ORM and Twig
+#### A blog app based on Slim, Eloquent ORM and Twig
+
+[Installation instructions](#installation-instructions)
+[Tech used](#tech-used)
+[Installation instructions](#the-most-important-folders--files-within-this-project)
 
 ## In this blog app you will experience the following functionalities:
 1. Viewing all blog posts, incl. their tags
@@ -42,7 +46,8 @@ composer update
 #### In this Blog the following main concepts, languages, frameworks, packages and other technologies are applied:
 PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim CSRF | Monolog | HTML | CSS
 
-## The most important folders & files within this project:
+## Folder & file structure
+#### The most important folders & files within this project:
 
       .
       ├── log                         # contains all log details  
