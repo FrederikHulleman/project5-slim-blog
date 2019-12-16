@@ -1,2 +1,30 @@
 [2019-12-11 19:19:43] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"ec9cc5d"}
 [2019-12-13 14:54:01] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"599e35a"}
+[2019-12-16 09:22:38] slim-app.INFO: View posts list with tag "Politics" | SUCCESSFUL [] {"uid":"88614e6"}
+[2019-12-16 09:26:14] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"d7e9469"}
+[2019-12-16 09:26:22] slim-app.INFO: Edit post: 153 | VIEW | SUCCESSFUL [] {"uid":"62c721e"}
+[2019-12-16 09:26:34] slim-app.NOTICE: Edit post: 153 | SUCCESSFUL | ["id: 153","title: September"] [] {"uid":"4b5cb01"}
+[2019-12-16 09:26:34] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"340e280"}
+[2019-12-16 09:26:54] slim-app.NOTICE: New comment post 153 | SUCCESSFUL [] {"uid":"f7fa9b0"}
+[2019-12-16 09:26:55] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"9e72f61"}
+[2019-12-16 09:29:04] slim-app.NOTICE: View post: september | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 26 file is not a database (SQL: select * from "posts" where "slug" = september limit 1) [] {"uid":"a9433e1"}
+[2019-12-16 09:29:04] slim-app.NOTICE: View posts list | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 26 file is not a database (SQL: select * from "posts" order by "date" desc) [] {"uid":"2ecdd90"}
+[2019-12-16 09:29:06] slim-app.NOTICE: View posts list | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 26 file is not a database (SQL: select * from "posts" order by "date" desc) [] {"uid":"8bbed5b"}
+[2019-12-16 09:29:13] slim-app.NOTICE: View posts list | UNSUCCESSFUL | SQLSTATE[HY000]: General error: 26 file is not a database (SQL: select * from "posts" order by "date" desc) [] {"uid":"ccd7200"}
+[2019-12-16 09:31:34] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"d146275"}
+[2019-12-16 09:31:37] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"3f8989b"}
+[2019-12-16 09:32:21] slim-app.NOTICE: New comment post 153 | SUCCESSFUL [] {"uid":"6229a4f"}
+[2019-12-16 09:32:21] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"5fcaf5c"}
+[2019-12-16 09:33:49] slim-app.INFO: View tags list | SUCCESSFUL [] {"uid":"f44b1a5"}
+[2019-12-16 09:35:10] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"f2f6f18"}
+[2019-12-16 09:35:12] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"01e1d7d"}
+[2019-12-16 09:35:15] slim-app.INFO: Edit post: 153 | VIEW | SUCCESSFUL [] {"uid":"724dafb"}
+[2019-12-16 09:35:30] slim-app.INFO: View post: 153 | SUCCESSFUL [] {"uid":"4098404"}
+[2019-12-16 09:35:31] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"8d64283"}
+[2019-12-16 09:35:33] slim-app.INFO: View post: 154 | SUCCESSFUL [] {"uid":"1e83135"}
+[2019-12-16 09:35:36] slim-app.INFO: Edit post: 154 | VIEW | SUCCESSFUL [] {"uid":"b837756"}
+[2019-12-16 09:36:10] slim-app.INFO: View post: 154 | SUCCESSFUL [] {"uid":"a21b5e2"}
+[2019-12-16 09:36:12] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"255c593"}
+[2019-12-16 09:36:27] slim-app.INFO: View post: 155 | SUCCESSFUL [] {"uid":"b2c1d83"}
+[2019-12-16 09:37:06] slim-app.INFO: View posts list | SUCCESSFUL [] {"uid":"4361f99"}
+[2019-12-16 09:37:08] slim-app.INFO: View tags list | SUCCESSFUL [] {"uid":"783b105"}

@@ -23,8 +23,8 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 
       .
       ├── log                         # contains all log details  
-      │   └── app.log                 # contains css files, images, htaccess and index.php files  
-      ├── public
+      │   └── app.log                 
+      ├── public                      # contains css files, images, htaccess and index.php files  
       │   ├── css
       │   └── img
       ├── src                         # contains the database file & the primary Slim files  
@@ -39,24 +39,26 @@ PHP | MVC pattern | OOP | Slim | Eloquent ORM (Laravel) | SQLite | Twig | Slim C
 
 2. Filtering the blog posts by tag
 
-![Image of Main Screen](screenshots/posts.png)
+![Image of Main Screen filtered by tag](screenshots/filtered_by_tag.png)
 
 3. Viewing blog details, reading its comments and adding new comments
 
-![Image of Main Screen](screenshots/posts.png)
+![Image #1 of post details screen](screenshots/blog_detail_1.png)
+
+![Image #2 of post details screen](screenshots/blog_detail_2.png)
 
 4. Adding blogs, incl. their tags
 
-![Image of Main Screen](screenshots/posts.png)
+![Image of Add Post Screen](screenshots/add_post.png)
 
 5. Editing blog details, incl. their tags
 
-![Image of Main Screen](screenshots/posts.png)
+![Image of Edit Post Screen](screenshots/edit_post.png)
 
 6. Deleting blog posts
 
-![Image of Main Screen](screenshots/posts.png)
+![Image of Delete Post Screen](screenshots/delete_post.png)
 
 7. Managing tags: retrieving, adding, updating & deleting tags. And when done, of course, you can start using the tags for your posts
 
-![Image of Main Screen](screenshots/posts.png)
+![Image of Tags Screen](screenshots/tags.png)
