@@ -45,7 +45,7 @@ composer update
 ```
 
 ## Tech used
-#### In this Blog the following main concepts, languages, frameworks, packages and other technologies are applied:
+#### In this Blog app the following main concepts, languages, frameworks, packages and other technologies are applied:
 PHP | MVC pattern | OOP | Slim | Eloquent ORM | SQLite | Twig | Slim CSRF | Monolog | HTML | CSS
 
 ## Folder & file structure
