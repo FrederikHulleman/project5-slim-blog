@@ -1,7 +1,10 @@
 # A blog app based on Slim, Eloquent ORM and Twig
 ### PHP Team Treehouse TechDegree project #5
 
-| [What the app does](#what-the-app-does) | [Installation instructions](#installation-instructions) | [Tech used](#tech-used) | [Folder & file structure](#folder--file-structure) |
+- [What the app does](#what-the-app-does)
+- [Installation instructions](#installation-instructions)
+- [Tech used](#tech-used)
+- [Folder & file structure](#folder--file-structure)
 
 ## What the app does
 #### In this blog app you will experience the following functionalities:
