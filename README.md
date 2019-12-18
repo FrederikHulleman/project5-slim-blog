@@ -41,8 +41,16 @@
 ## Installation instructions
 #### After downloading this project, make sure you run the following composer command in the project folder to install the right packages:
 ```bash
-composer update
+composer install
 ```
+
+#### Then make sure composer autloads all classes automatically by running this command:
+
+```bash
+composer dump-autoload -o
+```
+
+#### And you're ready to go!  
 
 ## Tech used
 #### In this Blog app the following main concepts, languages, frameworks, packages and other technologies are applied:
